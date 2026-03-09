@@ -17,4 +17,3 @@ texture = ExtResource("2_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1437906845]
 shape = SubResource("CapsuleShape2D_8afob")
-disabled = true
