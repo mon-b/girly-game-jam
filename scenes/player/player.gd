@@ -6,23 +6,21 @@ extends CharacterBody2D
 @export var current_floor: int = 2
 
 func _change_floor():
-	pass
+	if Input.is_action_just_pressed("up") and current_floor == 1:
+		position.y -= floor_height
+		current_floor = 2
+
+	if Input.is_action_just_pressed("down") and current_floor == 2:
+		position.y += floor_height
+		current_floor = 1
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
 	velocity.x = input_direction.x * speed
 	velocity.y = 0
-	
-	if Input.is_action_just_pressed("up") and current_floor == 1:
-		position.y -= floor_height
-		current_floor = 2
-
-	elif Input.is_action_just_pressed("down") and current_floor == 2:
-		position.y += floor_height
-		current_floor = 1
-
 
 func _physics_process(delta):
 	get_input()
+	_change_floor()
 	move_and_slide()
