@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bemiihq0ja77e"]
+
+[ext_resource type="Script" uid="uid://cytca5y81oy5k" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://dl4hvy73utfis" path="res://assets/sprites/Bunny.png" id="2_gmlin"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
+radius = 22.0
+height = 82.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1514554974]
+script = ExtResource("1_dovo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570464909]
+texture = ExtResource("2_gmlin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1437906845]
+shape = SubResource("CapsuleShape2D_8afob")
+disabled = true
