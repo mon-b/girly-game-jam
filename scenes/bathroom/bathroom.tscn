@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://yatmd0gjfq53"]
+
+[node name="Bathroom" type="Node2D" unique_id=1072886715]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=934567015]
+custom_minimum_size = Vector2(450, 240)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.8497938, 0.77427065, 1, 1)

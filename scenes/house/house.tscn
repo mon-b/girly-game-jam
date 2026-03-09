@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d3xea3jfr6574"]
+
+[ext_resource type="PackedScene" uid="uid://yatmd0gjfq53" path="res://scenes/bathroom/bathroom.tscn" id="1_44bws"]
+[ext_resource type="PackedScene" uid="uid://ci0ab5ffawjjt" path="res://scenes/kitchen/kitchen.tscn" id="2_wusmn"]
+[ext_resource type="PackedScene" uid="uid://bu7n8ef27q6xa" path="res://scenes/livingroom/livingroom.tscn" id="3_guua2"]
+[ext_resource type="PackedScene" uid="uid://42yit58oxluq" path="res://scenes/bedroom/bedroom.tscn" id="4_cr554"]
+[ext_resource type="PackedScene" uid="uid://b1bfp0gk5nkrw" path="res://scenes/walls/horizontal_wall.tscn" id="5_guua2"]
+[ext_resource type="PackedScene" uid="uid://c0h38f3ddvnqm" path="res://scenes/walls/vertical_wall.tscn" id="6_cr554"]
+[ext_resource type="PackedScene" uid="uid://bemiihq0ja77e" path="res://scenes/player/player.tscn" id="7_cr554"]
+
+[node name="House" type="Node2D" unique_id=592924595]
+
+[node name="Bathroom" parent="." unique_id=1072886715 instance=ExtResource("1_44bws")]
+position = Vector2(490, 280)
+
+[node name="Kitchen" parent="." unique_id=1771863435 instance=ExtResource("2_wusmn")]
+position = Vector2(20, 20)
+
+[node name="Livingroom" parent="." unique_id=1595629707 instance=ExtResource("3_guua2")]
+position = Vector2(490, 20)
+
+[node name="Bedroom" parent="." unique_id=1453550487 instance=ExtResource("4_cr554")]
+position = Vector2(20, 280)
+
+[node name="Walls" type="Node2D" parent="." unique_id=994465101]
+
+[node name="TopWall" parent="Walls" unique_id=1283225878 instance=ExtResource("5_guua2")]
+
+[node name="MiddleWall" parent="Walls" unique_id=1401238389 instance=ExtResource("5_guua2")]
+position = Vector2(0, 260)
+
+[node name="BottomWall" parent="Walls" unique_id=406002255 instance=ExtResource("5_guua2")]
+position = Vector2(0, 520)
+
+[node name="VerticalWall" parent="Walls" unique_id=1425045039 instance=ExtResource("6_cr554")]
+
+[node name="VerticalWall2" parent="Walls" unique_id=508376676 instance=ExtResource("6_cr554")]
+position = Vector2(470, 0)
+
+[node name="VerticalWall3" parent="Walls" unique_id=1418742627 instance=ExtResource("6_cr554")]
+position = Vector2(940, 0)
+
+[node name="CharacterBody2D" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
+position = Vector2(63, 209)
+platform_wall_layers = 1

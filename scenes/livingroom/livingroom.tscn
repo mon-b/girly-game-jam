@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bu7n8ef27q6xa"]
+
+[node name="Livingroom" type="Node2D" unique_id=1595629707]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=411493579]
+custom_minimum_size = Vector2(450, 240)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.57504255, 0.86593205, 0.9867776, 1)

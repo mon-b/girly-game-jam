@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b1bfp0gk5nkrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etbo7"]
+
+[node name="HorizontalWall" type="StaticBody2D" unique_id=6973320]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=264991491]
+offset_right = 960.0
+offset_bottom = 20.0
+color = Color(0, 0.8509804, 0.40784314, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1063150176]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(960, 20)
+shape = SubResource("RectangleShape2D_etbo7")

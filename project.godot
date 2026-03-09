@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Girly Game Jam"
-run/main_scene="uid://bemiihq0ja77e"
+run/main_scene="uid://d3xea3jfr6574"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
