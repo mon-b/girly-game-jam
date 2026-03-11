@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cous83enx7mqe" path="res://assets/juice-shop/Minigame-trash-door.png" id="5_r2vkq"]
 [ext_resource type="Texture2D" uid="uid://bmsfy5rodwvm5" path="res://assets/juice-shop/delivery-tray.png" id="6_qa073"]
 [ext_resource type="Texture2D" uid="uid://ejbg7r5wnt62" path="res://assets/juice-shop/Minigame-overlay.png" id="8_r2vkq"]
+[ext_resource type="Texture2D" uid="uid://ba3n6teb4cqbq" path="res://assets/juice-shop/Score_modal.png" id="9_qa073"]
 
 [node name="JuiceShop" type="Node2D" unique_id=1412552494]
 script = ExtResource("1_svxci")
@@ -80,3 +81,42 @@ default_color = Color(0.43137255, 1, 1, 1)
 offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("8_r2vkq")
+
+[node name="ScoreModal" type="TextureRect" parent="." unique_id=401003938]
+visible = false
+offset_left = 175.0
+offset_top = 74.0
+offset_right = 423.0
+offset_bottom = 245.0
+texture = ExtResource("9_qa073")
+
+[node name="EarningsLabel" type="Label" parent="ScoreModal" unique_id=1833570929]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 237.0
+offset_bottom = 109.0
+theme_override_colors/font_outline_color = Color(0.543496, 0.3041218, 0.18403262, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5epfq")
+theme_override_font_sizes/font_size = 24
+text = "Score: 26
+Earnings: 260"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgain" type="TextureButton" parent="ScoreModal" unique_id=1325290107]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 105.0
+offset_right = 116.0
+offset_bottom = 145.0
+texture_normal = ExtResource("6_qa073")
+
+[node name="LeaveMinigame" type="TextureButton" parent="ScoreModal" unique_id=1649295284]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 105.0
+offset_right = 202.0
+offset_bottom = 145.0
+texture_normal = ExtResource("6_qa073")

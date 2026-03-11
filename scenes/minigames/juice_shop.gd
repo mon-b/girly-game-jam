@@ -58,7 +58,7 @@ var trash_door_start := Vector2(122.75, 310.5)
 var delivery_tray_start := Vector2(473.0, 309.5)
 
 # ========================
-# Keep & track state
+# Set & track state
 # ========================
 
 var current_order: JuiceColor = JuiceColor.YELLOW
@@ -88,6 +88,11 @@ var time_left: float = 60.0
 
 @onready var trash_door: Node2D = $TrashDoor
 @onready var delivery_tray: Node2D = $DeliveryTray
+
+@onready var score_modal = $ScoreModal
+@onready var earnings_label = $ScoreModal/EarningsLabel
+@onready var play_again = $ScoreModal/PlayAgain
+@onready var leave_minigame = $ScoreModal/LeaveMinigame
 
 # ========================
 # On ready and while running
@@ -335,6 +340,11 @@ func generate_new_order():
 func game_over():
 	print("Game Over! Final Score: ", score)
 	# !!! need to add func here to show a final score modal
+	
+	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score*10)
+	score_label.hide()
+	score_modal.show()
+	
 	set_process(false)
 
 # ========================
