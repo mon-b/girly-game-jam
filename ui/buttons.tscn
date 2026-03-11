@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://br8idbt3jg6ni"]
+
+[ext_resource type="Texture2D" uid="uid://cyd4prrpct5ln" path="res://assets/buttons.png" id="1_nl7wd"]
+[ext_resource type="Script" uid="uid://tg8sbmpbv18j" path="res://ui/shop.gd" id="2_asmfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asmfa"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28n8x"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulsp3"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1lxv"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(0, 240, 80, 80)
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=2080362688]
+offset_left = -40.0
+offset_top = -180.0
+offset_right = 40.0
+offset_bottom = 180.0
+alignment = 1
+
+[node name="Camera" type="TextureButton" parent="." unique_id=1210502227]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_asmfa")
+
+[node name="Decorate" type="TextureButton" parent="." unique_id=1345688983]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_28n8x")
+
+[node name="Shop" type="TextureButton" parent="." unique_id=501627739]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ulsp3")
+script = ExtResource("2_asmfa")
+
+[node name="Door" type="TextureButton" parent="." unique_id=1105761404]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_n1lxv")

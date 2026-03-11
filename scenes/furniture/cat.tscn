@@ -7,4 +7,4 @@
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=795376584]
 texture = ExtResource("1_unwlm")
 region_enabled = true
-region_rect = Rect2(272, 32, 64, 48)
+region_rect = Rect2(352, 32, 32, 48)

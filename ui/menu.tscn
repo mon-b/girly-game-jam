@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://crtwg7urec3cy"]
+
+[ext_resource type="Script" uid="uid://cb5mxska8t0n4" path="res://ui/game.gd" id="1_4c782"]
+[ext_resource type="PackedScene" uid="uid://d3xea3jfr6574" path="res://scenes/house/house.tscn" id="1_udkah"]
+[ext_resource type="PackedScene" uid="uid://br8idbt3jg6ni" path="res://ui/buttons.tscn" id="2_4c782"]
+
+[node name="Game" type="Node2D" unique_id=479629583]
+script = ExtResource("1_4c782")
+
+[node name="House" parent="." unique_id=592924595 instance=ExtResource("1_udkah")]
+
+[node name="VBoxContainer" parent="." unique_id=2080362688 instance=ExtResource("2_4c782")]
+offset_left = 560.0
+offset_top = 0.0
+offset_right = 640.0
+offset_bottom = 360.0
