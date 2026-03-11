@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://42yit58oxluq"]
-
-[node name="Bedroom" type="Node2D" unique_id=1453550487]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=64863932]
-custom_minimum_size = Vector2(208, 116)
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 0.7764706, 1, 1)
