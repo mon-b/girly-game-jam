@@ -20,7 +20,7 @@ func get_input():
 	velocity.x = input_direction.x * speed
 	velocity.y = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	_change_floor()
 	move_and_slide()
