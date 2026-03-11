@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c53c3l0w84hgb"]
+
+[ext_resource type="Texture2D" uid="uid://di5l8x0fh00co" path="res://assets/juice-shop/Minigame-base.png" id="1_bshr8"]
+[ext_resource type="Script" uid="uid://btvt74qd6tu75" path="res://scenes/minigames/juice_shop.gd" id="1_svxci"]
+[ext_resource type="FontFile" uid="uid://di0hmduvbgxi1" path="res://assets/fonts/retro-pixel-thick.ttf.woff2" id="3_5epfq"]
+[ext_resource type="Texture2D" uid="uid://decrdpo7s7wje" path="res://assets/juice-shop/cup-blue.png" id="3_5rptb"]
+[ext_resource type="Texture2D" uid="uid://ccxkcgkbh8j" path="res://assets/juice-shop/order-blue.png" id="4_5epfq"]
+[ext_resource type="Texture2D" uid="uid://cous83enx7mqe" path="res://assets/juice-shop/Minigame-trash-door.png" id="5_r2vkq"]
+[ext_resource type="Texture2D" uid="uid://bmsfy5rodwvm5" path="res://assets/juice-shop/delivery-tray.png" id="6_qa073"]
+
+[node name="JuiceShop" type="Node2D" unique_id=1412552494]
+script = ExtResource("1_svxci")
+
+[node name="BG" type="TextureRect" parent="." unique_id=255415577]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_bshr8")
+
+[node name="Score" type="Label" parent="." unique_id=307040302]
+offset_left = 276.0
+offset_top = 34.0
+offset_right = 345.0
+offset_bottom = 117.0
+theme_override_colors/font_outline_color = Color(0.5649297, 0.33401763, 0.30622354, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_5epfq")
+theme_override_font_sizes/font_size = 60
+text = "26"
+
+[node name="Timer" type="Label" parent="." unique_id=1633298696]
+offset_left = 142.0
+offset_top = 34.0
+offset_right = 192.0
+offset_bottom = 62.0
+theme_override_colors/font_outline_color = Color(0.5478039, 0.27278063, 0.26887754, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5epfq")
+theme_override_font_sizes/font_size = 20
+text = "1:26"
+
+[node name="Order" type="Sprite2D" parent="." unique_id=1887443483]
+position = Vector2(457.5, 64.5)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("4_5epfq")
+
+[node name="TrashDoor" type="Sprite2D" parent="." unique_id=972605050]
+position = Vector2(122.75, 310.50003)
+scale = Vector2(0.99019593, 0.99999994)
+texture = ExtResource("5_r2vkq")
+
+[node name="DeliveryTray" type="Sprite2D" parent="." unique_id=753428292]
+position = Vector2(473, 309.5)
+scale = Vector2(1, 1.0000002)
+texture = ExtResource("6_qa073")
+
+[node name="Cup" type="Sprite2D" parent="." unique_id=434406711]
+position = Vector2(296, 285)
+texture = ExtResource("3_5rptb")
+
+[node name="LiquidYellow" type="Line2D" parent="." unique_id=1014278097]
+visible = false
+position = Vector2(216, 285)
+points = PackedVector2Array(0, -49, 0, -28)
+default_color = Color(1, 0.85882354, 0.10980392, 1)
+
+[node name="LiquidPink" type="Line2D" parent="." unique_id=222655007]
+visible = false
+position = Vector2(296, 285)
+points = PackedVector2Array(0, -49, 0, -28)
+default_color = Color(1, 0.2509804, 0.5058824, 1)
+
+[node name="LiquidBlue" type="Line2D" parent="." unique_id=1383206710]
+visible = false
+position = Vector2(376, 285)
+points = PackedVector2Array(0, -49, 0, -28)
+default_color = Color(0.43137255, 1, 1, 1)
