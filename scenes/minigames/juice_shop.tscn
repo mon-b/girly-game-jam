@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ccxkcgkbh8j" path="res://assets/juice-shop/order-blue.png" id="4_5epfq"]
 [ext_resource type="Texture2D" uid="uid://cous83enx7mqe" path="res://assets/juice-shop/Minigame-trash-door.png" id="5_r2vkq"]
 [ext_resource type="Texture2D" uid="uid://bmsfy5rodwvm5" path="res://assets/juice-shop/delivery-tray.png" id="6_qa073"]
+[ext_resource type="Texture2D" uid="uid://ejbg7r5wnt62" path="res://assets/juice-shop/Minigame-overlay.png" id="8_r2vkq"]
 
 [node name="JuiceShop" type="Node2D" unique_id=1412552494]
 script = ExtResource("1_svxci")
@@ -74,3 +75,8 @@ visible = false
 position = Vector2(376, 285)
 points = PackedVector2Array(0, -49, 0, -28)
 default_color = Color(0.43137255, 1, 1, 1)
+
+[node name="Overlay" type="TextureRect" parent="." unique_id=307326240]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("8_r2vkq")
