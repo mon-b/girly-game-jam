@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://di0hmduvbgxi1" path="res://assets/fonts/retro-pixel-thick.ttf.woff2" id="4_5klac"]
 [ext_resource type="Texture2D" uid="uid://ba3n6teb4cqbq" path="res://assets/juice-shop/Score_modal.png" id="5_lsdqh"]
 [ext_resource type="Script" uid="uid://difq536xgvnah" path="res://ui/options_modal.gd" id="6_jiymt"]
-[ext_resource type="Texture2D" uid="uid://bmsfy5rodwvm5" path="res://assets/juice-shop/delivery-tray.png" id="7_bgtsx"]
+[ext_resource type="Texture2D" uid="uid://cxcswqvjasn30" path="res://assets/juice-shop/Close_button.png" id="7_p8ri8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63poq"]
 bg_color = Color(0.9609079, 0.7681823, 0.7870016, 1)
@@ -108,8 +108,7 @@ offset_left = 213.0
 offset_top = 19.0
 offset_right = 236.0
 offset_bottom = 44.0
-texture_normal = ExtResource("7_bgtsx")
-ignore_texture_size = true
+texture_normal = ExtResource("7_p8ri8")
 stretch_mode = 0
 
 [node name="OptionsLabel" type="Label" parent="OptionsModal" unique_id=57963071]

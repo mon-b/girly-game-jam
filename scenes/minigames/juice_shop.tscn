@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bmsfy5rodwvm5" path="res://assets/juice-shop/delivery-tray.png" id="6_qa073"]
 [ext_resource type="Texture2D" uid="uid://ejbg7r5wnt62" path="res://assets/juice-shop/Minigame-overlay.png" id="8_r2vkq"]
 [ext_resource type="Texture2D" uid="uid://ba3n6teb4cqbq" path="res://assets/juice-shop/Score_modal.png" id="9_qa073"]
+[ext_resource type="Texture2D" uid="uid://epf5gs53awsd" path="res://assets/juice-shop/Score_modal_button.png" id="10_vjlo0"]
 
 [node name="JuiceShop" type="Node2D" unique_id=1412552494]
 script = ExtResource("1_svxci")
@@ -107,19 +108,42 @@ vertical_alignment = 1
 
 [node name="PlayAgain" type="TextureButton" parent="ScoreModal" unique_id=1325290107]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 105.0
+offset_left = 33.0
+offset_top = 110.0
 offset_right = 116.0
-offset_bottom = 145.0
-texture_normal = ExtResource("6_qa073")
+offset_bottom = 138.0
+texture_normal = ExtResource("10_vjlo0")
+
+[node name="Label" type="Label" parent="ScoreModal/PlayAgain" unique_id=1651183669]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 81.0
+offset_bottom = 26.0
+theme_override_colors/font_outline_color = Color(0.59226036, 0.24470109, 0.30104855, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5epfq")
+text = "Try Again"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeaveMinigame" type="TextureButton" parent="ScoreModal" unique_id=1649295284]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 105.0
-offset_right = 202.0
-offset_bottom = 145.0
-texture_normal = ExtResource("6_qa073")
+offset_left = 133.0
+offset_top = 110.0
+offset_right = 216.0
+offset_bottom = 138.0
+texture_normal = ExtResource("10_vjlo0")
+
+[node name="Label" type="Label" parent="ScoreModal/LeaveMinigame" unique_id=73237646]
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0.59226036, 0.24470109, 0.30104855, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5epfq")
+text = "Go Back"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="ScoreModal/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="ScoreModal/LeaveMinigame" to="." method="_on_leave_minigame_pressed"]
