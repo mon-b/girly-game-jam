@@ -120,3 +120,6 @@ offset_top = 105.0
 offset_right = 202.0
 offset_bottom = 145.0
 texture_normal = ExtResource("6_qa073")
+
+[connection signal="pressed" from="ScoreModal/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="ScoreModal/LeaveMinigame" to="." method="_on_leave_minigame_pressed"]

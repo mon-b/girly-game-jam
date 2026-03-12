@@ -99,6 +99,7 @@ var time_left: float = 60.0
 # ========================
 
 func _ready():
+	AudioManager.play_music("res://assets/audio/music/JuiceMinigame.mp3", 10)
 	randomize()
 	generate_new_order()
 	update_cup_visuals()
@@ -338,8 +339,7 @@ func generate_new_order():
 	load_texture(order_sprite, ORDER_TEXTURE_PATH, COLOR_NAMES[current_order])
 
 func game_over():
-	print("Game Over! Final Score: ", score)
-	# !!! need to add func here to show a final score modal
+	AudioManager.stop_music()
 	
 	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score*10)
 	score_label.hide()
@@ -382,3 +382,13 @@ func animate_pump_stream(pump_pos: CupPosition):
 	stream.hide()
 	stream.modulate.a = 1.0
 	stream.width = 6.0
+
+# =========================
+# Handle score modal buttons
+# =========================
+
+func _on_play_again_pressed():
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/minigames/juice_shop.tscn")
+
+func _on_leave_minigame_pressed():
+	get_tree().call_deferred("change_scene_to_file", "res://ui/main_menu.tscn")

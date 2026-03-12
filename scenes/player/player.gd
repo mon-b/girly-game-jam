@@ -19,11 +19,13 @@ func _change_floor():
 func _walk_animation():
 	if Input.is_action_just_pressed("right"):
 		_animated_sprite.play("walk")
+		_animated_sprite.flip_h = false
 	elif Input.is_action_just_released("right"):
 		_animated_sprite.stop()
 		
 	if Input.is_action_just_pressed("left"):
 		_animated_sprite.play("walk")
+		_animated_sprite.flip_h = true
 	elif Input.is_action_just_released("left"):
 		_animated_sprite.stop()
 	

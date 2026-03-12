@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cpqy5834i78lw"]
+
+[ext_resource type="Script" uid="uid://cnbdy8hnmumvu" path="res://ui/main_menu.gd" id="1_p8ri8"]
+[ext_resource type="Texture2D" uid="uid://bfvm8fpxoygem" path="res://assets/MainMenu-base.png" id="2_ubpvv"]
+[ext_resource type="Texture2D" uid="uid://b8jyo0k21ge6d" path="res://assets/MainMenu-bow-button.png" id="3_arv2f"]
+[ext_resource type="FontFile" uid="uid://di0hmduvbgxi1" path="res://assets/fonts/retro-pixel-thick.ttf.woff2" id="4_5klac"]
+[ext_resource type="Texture2D" uid="uid://ba3n6teb4cqbq" path="res://assets/juice-shop/Score_modal.png" id="5_lsdqh"]
+[ext_resource type="Script" uid="uid://difq536xgvnah" path="res://ui/options_modal.gd" id="6_jiymt"]
+[ext_resource type="Texture2D" uid="uid://bmsfy5rodwvm5" path="res://assets/juice-shop/delivery-tray.png" id="7_bgtsx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63poq"]
+bg_color = Color(0.9609079, 0.7681823, 0.7870016, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6, 0.36862746, 0.30588236, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+expand_margin_left = 1.0
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaa3u"]
+bg_color = Color(0.9362827, 0.5603177, 0.62350094, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5c4l"]
+bg_color = Color(0.9534444, 2.0214916e-06, 0.46773356, 0.61960787)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[node name="MainMenu" type="Node2D" unique_id=345814211]
+script = ExtResource("1_p8ri8")
+
+[node name="BG" type="TextureRect" parent="." unique_id=284968650]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ubpvv")
+
+[node name="Play" type="TextureButton" parent="." unique_id=792089217]
+offset_left = 159.0
+offset_top = 250.0
+offset_right = 227.0
+offset_bottom = 301.0
+texture_normal = ExtResource("3_arv2f")
+
+[node name="BtnLabel" type="Label" parent="Play" unique_id=1177608192]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 68.0
+offset_bottom = 38.0
+theme_override_colors/font_outline_color = Color(0.41672382, 0.24693945, 0.24936488, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_5klac")
+theme_override_font_sizes/font_size = 22
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="TextureButton" parent="." unique_id=1891957022]
+offset_left = 413.0
+offset_top = 247.0
+offset_right = 481.0
+offset_bottom = 298.0
+texture_normal = ExtResource("3_arv2f")
+
+[node name="BtnLabel" type="Label" parent="Options" unique_id=1837352497]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 68.0
+offset_bottom = 38.0
+theme_override_colors/font_outline_color = Color(0.41672382, 0.24693945, 0.24936488, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_5klac")
+theme_override_font_sizes/font_size = 22
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsModal" type="NinePatchRect" parent="." unique_id=390994840]
+visible = false
+offset_left = 175.0
+offset_top = 74.0
+offset_right = 431.0
+offset_bottom = 249.0
+texture = ExtResource("5_lsdqh")
+region_rect = Rect2(0, 0, 248, 171)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+script = ExtResource("6_jiymt")
+
+[node name="CloseOptions" type="TextureButton" parent="OptionsModal" unique_id=1746571255]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 19.0
+offset_right = 236.0
+offset_bottom = 44.0
+texture_normal = ExtResource("7_bgtsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="OptionsLabel" type="Label" parent="OptionsModal" unique_id=57963071]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 23.0
+offset_right = 254.0
+offset_bottom = 54.0
+theme_override_colors/font_outline_color = Color(0.543496, 0.3041218, 0.18403262, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_5klac")
+theme_override_font_sizes/font_size = 24
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameVolume" type="HSlider" parent="OptionsModal" unique_id=503823173]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 84.0
+offset_right = 198.0
+offset_bottom = 100.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_63poq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_uaa3u")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_m5c4l")
+step = 10.0
+value = 70.0
+ticks_position = 2
+
+[node name="Label" type="Label" parent="OptionsModal/GameVolume" unique_id=1063204180]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 133.0
+offset_bottom = -2.0
+theme_override_colors/font_color = Color(0.49103892, 0.26773232, 0.24245903, 1)
+text = "Game (Master)"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HSlider" parent="OptionsModal" unique_id=1659074923]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 126.0
+offset_right = 198.0
+offset_bottom = 142.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_63poq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_uaa3u")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_m5c4l")
+step = 10.0
+value = 70.0
+ticks_position = 2
+
+[node name="Label" type="Label" parent="OptionsModal/MusicVolume" unique_id=146923163]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -23.0
+offset_right = 134.0
+theme_override_colors/font_color = Color(0.49103892, 0.26773232, 0.24245903, 1)
+text = "Music"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="OptionsModal/CloseOptions" to="." method="_on_close_options_pressed"]
+[connection signal="value_changed" from="OptionsModal/GameVolume" to="OptionsModal" method="_on_game_volume_value_changed"]
+[connection signal="value_changed" from="OptionsModal/MusicVolume" to="OptionsModal" method="_on_music_volume_value_changed"]
