@@ -42,7 +42,9 @@ offset_right = 324.0
 offset_bottom = 335.0
 color = Color(1, 0.9019608, 0.88235295, 1)
 
-[node name="Bookcase" parent="." unique_id=867769750 instance=ExtResource("4_44bws")]
+[node name="Furniture" type="Node2D" parent="." unique_id=828031650]
+
+[node name="Bookcase" parent="Furniture" unique_id=867769750 instance=ExtResource("4_44bws")]
 position = Vector2(227, 184)
 
 [node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
