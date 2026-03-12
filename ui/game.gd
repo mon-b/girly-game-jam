@@ -2,8 +2,8 @@ extends Node2D
 
 var preview: Node2D = null
 
-const FLOOR_Y1 = 305
-const FLOOR_Y2 = 193
+const FLOOR_Y1 = 300
+const FLOOR_Y2 = 188
 const WALL_TOP_Y = 150
 const WALL_BOTTOM_Y = 255
 const ROOM_X_MIN = 116
@@ -53,6 +53,115 @@ func _unhandled_input(event: InputEvent) -> void:
 		preview = null
 		Global.placing_item = null
 
+# ========================
+# Handle door button press
+# ========================
 
 func _on_door_pressed():
 	Global.change_scene("res://scenes/minigames/juice_shop.tscn")
+
+# ========================
+# Take screenshot when clicking camera
+# ========================
+
+# Take a screenshot (((experimental still havent tested in browser)))
+func take_screenshot(filename := "screenshot.png") -> void:
+	await get_tree().process_frame
+	
+	var viewport = get_viewport()
+	var img: Image = viewport.get_texture().get_image()
+	
+	var png_buffer = img.save_png_to_buffer()
+	var base64 = Marshalls.raw_to_base64(png_buffer)
+	var data_url = "data:image/png;base64," + base64
+	
+	if OS.has_feature("web"):
+		# Only run JS in actual web build
+		var safe_name = filename.replace("\"", "\\\"")
+		var js = """
+            (function() {
+                var link = document.createElement('a');
+                link.href = '%s';
+                link.download = '%s';
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })();
+		""" % [data_url, safe_name]
+		
+		JavaScriptBridge.eval(js, true)  # true = show errors in console
+	else:
+		# Editor / desktop fallback: save to disk so you can see it worked
+		var err = img.save_png("user://%s" % filename)
+		if err == OK:
+			print("Screenshot saved to: user://%s (open via Project → Open User Data Folder)" % filename)
+		else:
+			printerr("Failed to save PNG: ", err)
+
+# If I didnt hide all buttons manually they wouldn't hide
+func _on_camera_pressed():
+	$VBoxContainer.hide()
+	$VBoxContainer/Camera.hide()
+	$VBoxContainer/Decorate.hide()
+	$VBoxContainer/Shop.hide()
+	$VBoxContainer/Door.hide()
+	await get_tree().create_timer(0.1).timeout
+
+	take_screenshot()
+
+	await get_tree().create_timer(0.1).timeout
+	$VBoxContainer.show()
+	$VBoxContainer/Camera.show()
+	$VBoxContainer/Decorate.show()
+	$VBoxContainer/Shop.show()
+	$VBoxContainer/Door.show()
+
+
+# ========================
+# Toggle BG color when clicking the color palette
+# ========================
+
+var bg_colors = [
+	"ffcddfff", # pastel pink
+	"d3c6ffff", # pastel purple
+	"bacfffff", # pastel blue
+	"abeaffff", # pastel turquoise
+	"cef8daff", # pastel green
+	"f6ecc2ff", # pastel yellow
+	"fbd0b6ff", # pastel orange
+	"cca886ff", # light brown
+	"c2c3c2ff", # light gray
+	"f6f2f2ff", # white
+	# ----
+	"db3a91ff", # bright pink
+	"7101ddff", # bright purple
+	"1b20ffff", # bright blue
+	"00afc1ff", # bright turquoise
+	"94d452ff", # bright green
+	"ffe22eff", # bright yellow
+	"f89835ff", # bright orange
+	"a86944ff", # medium brown
+	"86737dff", # medium gray
+	# ----
+	"440025ff", # dark pink
+	"33184cff", # dark purple
+	"252c68ff", # dark blue
+	"073a43ff", # dark turquoise
+	"203116ff", # dark green
+	"644b00ff", # dark yellow
+	"5a2a00ff", # dark orange
+	"351c0cff", # dark brown
+	"332a2cff", # dark gray
+	"080606ff" # black
+]
+
+var curr_color_index = 0
+
+func _on_decorate_pressed():
+	if curr_color_index == bg_colors.size()-1:
+		curr_color_index = 0
+	elif bg_colors.size() > 1:
+		curr_color_index += 1
+
+	RenderingServer.set_default_clear_color(Color(bg_colors[curr_color_index]))
