@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chddkjqyhe75b"]
 
 [ext_resource type="Texture2D" uid="uid://dliv4y1xvmvua" path="res://assets/sprites/Furniture.png" id="1_4d8gw"]
+[ext_resource type="Script" uid="uid://ikf3o1d4cafo" path="res://ui/shop/shop.gd" id="1_qn6t7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d8gw"]
 
@@ -29,6 +30,7 @@ atlas = ExtResource("1_4d8gw")
 region = Rect2(384, 144, 32, 32)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=391846603]
+script = ExtResource("1_qn6t7")
 
 [node name="Panel" type="Panel" parent="." unique_id=1650257910]
 offset_left = 120.0

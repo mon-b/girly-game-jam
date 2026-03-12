@@ -3,10 +3,11 @@ extends TextureButton
 const ShopScene = preload("res://ui/shop/shop.tscn")
 
 const ITEMS = {
-	"Panel/CenterContainer/VBoxContainer/row/lamp": preload("res://scenes/furniture/lamp.tscn"),
-	"Panel/CenterContainer/VBoxContainer/row/tv": preload("res://scenes/furniture/tv.tscn"),
-	"Panel/CenterContainer/VBoxContainer/row/tub": preload("res://scenes/furniture/tub.tscn"),
-	"Panel/CenterContainer/VBoxContainer/row2/cat": preload("res://scenes/furniture/cat.tscn"),
+	"Panel/CenterContainer/VBoxContainer/row/lamp": preload("res://scenes/furniture/floor/lamp.tscn"),
+	"Panel/CenterContainer/VBoxContainer/row/tv": preload("res://scenes/furniture/floor/tv.tscn"),
+	"Panel/CenterContainer/VBoxContainer/row/tub": preload("res://scenes/furniture/floor/tub.tscn"),
+	"Panel/CenterContainer/VBoxContainer/row2/cat": preload("res://scenes/furniture/floor/cat.tscn"),
+	"Panel/CenterContainer/VBoxContainer/row2/mirror": preload("res://scenes/furniture/wall/mirror.tscn"),
 }
 
 var shop_instance = null

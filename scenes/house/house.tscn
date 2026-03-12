@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3xea3jfr6574"]
 
-[ext_resource type="PackedScene" uid="uid://bw3a0whuebob4" path="res://scenes/furniture/bookcase.tscn" id="4_44bws"]
+[ext_resource type="PackedScene" uid="uid://bw3a0whuebob4" path="res://scenes/furniture/floor/bookcase.tscn" id="4_44bws"]
 [ext_resource type="Texture2D" uid="uid://bwhd1wu8vvt4f" path="res://assets/House.png" id="5_cr554"]
 [ext_resource type="PackedScene" uid="uid://c0h38f3ddvnqm" path="res://scenes/walls/vertical_wall.tscn" id="6_cr554"]
 [ext_resource type="PackedScene" uid="uid://bemiihq0ja77e" path="res://scenes/player/player.tscn" id="7_cr554"]

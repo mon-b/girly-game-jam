@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cpf8ga6ev356u"]
+
+[ext_resource type="Texture2D" uid="uid://dliv4y1xvmvua" path="res://assets/sprites/Furniture.png" id="1_r07g8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07g8"]
+atlas = ExtResource("1_r07g8")
+region = Rect2(384, 144, 32, 32)
+
+[node name="Node2D" type="Node2D" unique_id=867769750]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=795376584]
+position = Vector2(7, 0)
+texture = SubResource("AtlasTexture_r07g8")
+region_enabled = true
+region_rect = Rect2(448, 48, 32, 32)
