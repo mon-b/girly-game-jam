@@ -13,7 +13,8 @@ config_version=5
 config/name="Girly Game Jam"
 run/main_scene="uid://cpqy5834i78lw"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(1, 0.8158333, 0.83320826, 1)
+config/icon="uid://b8jyo0k21ge6d"
 
 [audio]
 
@@ -26,9 +27,10 @@ AudioManager="*uid://3x3tebfswh20"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 
 [input]
