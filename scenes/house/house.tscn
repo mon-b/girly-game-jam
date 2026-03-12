@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3xea3jfr6574"]
 
-[ext_resource type="PackedScene" uid="uid://bw3a0whuebob4" path="res://scenes/furniture/bookcase.tscn" id="4_44bws"]
+[ext_resource type="PackedScene" uid="uid://bw3a0whuebob4" path="res://scenes/furniture/floor/bookcase.tscn" id="4_44bws"]
 [ext_resource type="Texture2D" uid="uid://bwhd1wu8vvt4f" path="res://assets/House.png" id="5_cr554"]
 [ext_resource type="PackedScene" uid="uid://c0h38f3ddvnqm" path="res://scenes/walls/vertical_wall.tscn" id="6_cr554"]
 [ext_resource type="PackedScene" uid="uid://bemiihq0ja77e" path="res://scenes/player/player.tscn" id="7_cr554"]
@@ -16,14 +16,10 @@ position = Vector2(320, 180)
 texture = ExtResource("5_cr554")
 
 [node name="Vwall1" parent="background" unique_id=848799471 instance=ExtResource("6_cr554")]
-position = Vector2(116, 225)
+position = Vector2(116, 228)
 
 [node name="Vwall2" parent="background" unique_id=2046545902 instance=ExtResource("6_cr554")]
 position = Vector2(524, 228)
-
-[node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
-position = Vector2(134, 195)
-speed = null
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=829580266]
 offset_left = 317.0
@@ -46,5 +42,12 @@ offset_right = 324.0
 offset_bottom = 335.0
 color = Color(1, 0.9019608, 0.88235295, 1)
 
-[node name="Bookcase" parent="." unique_id=867769750 instance=ExtResource("4_44bws")]
+[node name="Furniture" type="Node2D" parent="." unique_id=828031650]
+
+[node name="Bookcase" parent="Furniture" unique_id=867769750 instance=ExtResource("4_44bws")]
 position = Vector2(227, 184)
+
+[node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
+position = Vector2(134, 195)
+scale = Vector2(1, 1)
+speed = null

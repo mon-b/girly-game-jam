@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ne2gxkgb4mpk"]
+
+[ext_resource type="Texture2D" uid="uid://dliv4y1xvmvua" path="res://assets/sprites/Furniture.png" id="1_pk4gi"]
+
+[node name="Node2D" type="Node2D" unique_id=867769750]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=795376584]
+position = Vector2(7, 0)
+texture = ExtResource("1_pk4gi")
+region_enabled = true
+region_rect = Rect2(336, 96, 32, 32)
