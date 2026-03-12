@@ -135,7 +135,7 @@ offset_bottom = 100.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_63poq")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_uaa3u")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_m5c4l")
-step = 20.0
+step = 10.0
 value = 100.0
 ticks_position = 2
 
@@ -158,7 +158,7 @@ offset_bottom = 142.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_63poq")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_uaa3u")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_m5c4l")
-step = 20.0
+step = 10.0
 value = 100.0
 ticks_position = 2
 

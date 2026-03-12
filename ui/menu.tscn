@@ -14,3 +14,7 @@ offset_left = 560.0
 offset_top = 0.0
 offset_right = 640.0
 offset_bottom = 360.0
+
+[connection signal="pressed" from="VBoxContainer/Door" to="." method="_on_door_pressed"]
+
+[editable path="VBoxContainer"]

@@ -11,8 +11,7 @@ func _ready():
 
 func _on_play_pressed():
 	# stop current music
-	AudioManager.stop_music()
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/minigames/juice_shop.tscn")
+	Global.change_scene("res://ui/menu.tscn")
 
 func _on_options_pressed():
 	options_modal.update_sliders()

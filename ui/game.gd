@@ -52,3 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		preview.queue_free()
 		preview = null
 		Global.placing_item = null
+
+
+func _on_door_pressed():
+	Global.change_scene("res://scenes/minigames/juice_shop.tscn")

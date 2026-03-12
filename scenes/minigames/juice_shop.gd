@@ -388,7 +388,7 @@ func animate_pump_stream(pump_pos: CupPosition):
 # =========================
 
 func _on_play_again_pressed():
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/minigames/juice_shop.tscn")
+	Global.change_scene("res://scenes/minigames/juice_shop.tscn")
 
 func _on_leave_minigame_pressed():
-	get_tree().call_deferred("change_scene_to_file", "res://ui/main_menu.tscn")
+	Global.change_scene("res://ui/menu.tscn")
