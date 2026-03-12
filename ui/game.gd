@@ -9,6 +9,8 @@ const WALL_BOTTOM_Y = 255
 const ROOM_X_MIN = 116
 const ROOM_X_MAX = 524
 
+func _ready():
+	AudioManager.play_music("res://assets/audio/music/Dollhouse.mp3", 0)
 
 func _process(_delta: float) -> void:
 	

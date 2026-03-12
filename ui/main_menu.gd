@@ -7,7 +7,7 @@ extends Node2D
 @onready var close_options = $OptionsModal/CloseOptions
 
 func _ready():
-	AudioManager.play_music("res://assets/audio/music/MainMenu.mp3", 0)
+	AudioManager.play_music("res://assets/audio/music/MainMenu.mp3", -4)
 
 func _on_play_pressed():
 	# stop current music
