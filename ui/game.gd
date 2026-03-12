@@ -2,7 +2,8 @@ extends Node2D
 
 var preview: Node2D = null
 
-const FLOOR_Y = 333
+const FLOOR_Y1 = 305
+const FLOOR_Y2 = 193
 const WALL_Y_MIN = 120
 const WALL_Y_MAX = 215
 const ROOM_X_MIN = 116
@@ -21,10 +22,16 @@ func _process(_delta: float) -> void:
 		if Global.type_placing_item == "wall":
 			preview.position = Vector2(
 				clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX),
-				clamp(mouse.x, WALL_Y_MIN, WALL_Y_MAX),
+				clamp(mouse.y, WALL_Y_MIN, WALL_Y_MAX),
 			)
-		elif Global.type_placing_item == "wall":
-			preview.position = Vector2(clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX), FLOOR_Y)
+		elif Global.type_placing_item == "floor":
+			var floor_y
+			if mouse.y > (FLOOR_Y1 + FLOOR_Y2)/2:
+				floor_y = FLOOR_Y1
+			else:
+				floor_y = FLOOR_Y2
+				
+			preview.position = Vector2(clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX), floor_y)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Global.placing_item == null:
