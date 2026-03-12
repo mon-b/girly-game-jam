@@ -20,4 +20,10 @@ func _ready() -> void:
 
 func _on_item_pressed(scene: PackedScene) -> void:
 	Global.placing_item = scene
+	
+	if "/wall/"  in scene.resource_path:
+		Global.type_placing_item = "wall"
+	elif "/floor/" in scene.resource_path:
+		Global.type_placing_item = "floor"
+	
 	visible = false
