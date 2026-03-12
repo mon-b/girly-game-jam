@@ -16,14 +16,10 @@ position = Vector2(320, 180)
 texture = ExtResource("5_cr554")
 
 [node name="Vwall1" parent="background" unique_id=848799471 instance=ExtResource("6_cr554")]
-position = Vector2(116, 225)
+position = Vector2(116, 228)
 
 [node name="Vwall2" parent="background" unique_id=2046545902 instance=ExtResource("6_cr554")]
 position = Vector2(524, 228)
-
-[node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
-position = Vector2(134, 195)
-speed = null
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=829580266]
 offset_left = 317.0
@@ -48,3 +44,8 @@ color = Color(1, 0.9019608, 0.88235295, 1)
 
 [node name="Bookcase" parent="." unique_id=867769750 instance=ExtResource("4_44bws")]
 position = Vector2(227, 184)
+
+[node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
+position = Vector2(134, 195)
+scale = Vector2(1, 1)
+speed = null

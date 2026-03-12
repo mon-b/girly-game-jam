@@ -1,19 +1,43 @@
 [gd_scene format=3 uid="uid://bemiihq0ja77e"]
 
 [ext_resource type="Script" uid="uid://cytca5y81oy5k" path="res://scenes/player/player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://dl4hvy73utfis" path="res://assets/sprites/Bunny.png" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bxtuhvdlhh7h7" path="res://assets/sprites/Bunny-walk.png" id="2_dovo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvxji")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 24.0
-height = 80.0
+radius = 12.0
+height = 44.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1222369044]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_dovo2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=506264718]
-texture = ExtResource("2_gmlin")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1085716539]
+sprite_frames = SubResource("SpriteFrames_p47bc")
+animation = &"walk"
+frame_progress = 0.42526037
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1179916945]
-position = Vector2(0, -2)
+position = Vector2(2, 0)
 shape = SubResource("CapsuleShape2D_8afob")
