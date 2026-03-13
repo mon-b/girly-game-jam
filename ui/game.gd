@@ -11,6 +11,7 @@ const ROOM_X_MAX = 524
 
 func _ready():
 	AudioManager.play_music("res://assets/audio/music/Dollhouse.mp3", 0)
+	_restore_furniture()
 
 func _process(_delta: float) -> void:
 	
@@ -59,7 +60,24 @@ func _unhandled_input(event: InputEvent) -> void:
 # Handle door button press
 # ========================
 
+func _save_furniture() -> void:
+	Global.placed_furniture.clear()
+	for item in $House/Furniture.get_children():
+		Global.placed_furniture.append({
+			"scene_path": item.scene_file_path,
+			"position": item.position
+		})
+
+func _restore_furniture() -> void:
+	for data in Global.placed_furniture:
+		var scene = load(data["scene_path"])
+		if scene:
+			var item = scene.instantiate()
+			item.position = data["position"]
+			$House/Furniture.add_child(item)
+
 func _on_door_pressed():
+	_save_furniture()
 	Global.change_scene("res://scenes/minigames/juice_shop.tscn")
 
 # ========================

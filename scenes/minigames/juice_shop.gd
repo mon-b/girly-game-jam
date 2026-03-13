@@ -135,11 +135,15 @@ func update_ui():
 # ========================
 
 func handle_input():
+	if Input.is_action_just_pressed("ui_cancel"):
+		Global.change_scene("res://ui/menu.tscn")
+		return
+
 	if Input.is_action_just_pressed("left"):
 		move_cup(-1)
 	elif Input.is_action_just_pressed("right"):
 		move_cup(1)
-	
+
 	if Input.is_action_just_pressed("interact"):
 		interact_at_current_position()
 
@@ -340,11 +344,11 @@ func generate_new_order():
 
 func game_over():
 	AudioManager.stop_music()
-	
-	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score*10)
+
+	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score * 10)
 	score_label.hide()
 	score_modal.show()
-	
+
 	set_process(false)
 
 # ========================

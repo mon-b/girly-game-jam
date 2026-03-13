@@ -2,6 +2,7 @@ extends Node
 
 var placing_item: PackedScene = null
 var type_placing_item: String = ""
+var placed_furniture: Array = []
 
 func change_scene(scene : String):
 	AudioManager.stop_music()

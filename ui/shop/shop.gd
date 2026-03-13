@@ -29,11 +29,15 @@ const ITEMS = {
 	"window2": preload("res://scenes/furniture/wall/window2.tscn"),
 }
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and visible:
+		visible = false
+
 func _ready() -> void:
 	for item_name in ITEMS:
 		var btn = _find_button(item_name)
 		if btn:
-			btn.pressed.connect(_on_item_pressed.bind(ITEMS[item_name]))
+			btn.pressed.connect(_on_item_pressed.bind(item_name))
 
 func _find_button(item_name: String) -> TextureButton:
 	for row in $Panel/CenterContainer/VBoxContainer.get_children():
@@ -43,12 +47,13 @@ func _find_button(item_name: String) -> TextureButton:
 	return null
 	
 
-func _on_item_pressed(scene: PackedScene) -> void:
+func _on_item_pressed(item_name: String) -> void:
+	var scene: PackedScene = ITEMS[item_name]
 	Global.placing_item = scene
-	
-	if "/wall/"  in scene.resource_path:
+
+	if "/wall/" in scene.resource_path:
 		Global.type_placing_item = "wall"
 	elif "/floor/" in scene.resource_path:
 		Global.type_placing_item = "floor"
-	
+
 	visible = false
