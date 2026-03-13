@@ -20,15 +20,16 @@ offset_bottom = 360.0
 texture = ExtResource("1_bshr8")
 
 [node name="Score" type="Label" parent="." unique_id=307040302]
-offset_left = 276.0
-offset_top = 34.0
-offset_right = 345.0
-offset_bottom = 117.0
+offset_left = 259.0
+offset_top = 37.0
+offset_right = 328.0
+offset_bottom = 120.0
 theme_override_colors/font_outline_color = Color(0.5649297, 0.33401763, 0.30622354, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("3_5epfq")
 theme_override_font_sizes/font_size = 60
 text = "26"
+horizontal_alignment = 1
 
 [node name="Timer" type="Label" parent="." unique_id=1633298696]
 offset_left = 142.0

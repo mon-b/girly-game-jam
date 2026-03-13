@@ -5,7 +5,7 @@
 [node name="Node2D" type="Node2D" unique_id=867769750]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=795376584]
-position = Vector2(7, 0)
+position = Vector2(0, -24)
 texture = ExtResource("1_x4kyp")
 region_enabled = true
 region_rect = Rect2(496, 32, 32, 48)

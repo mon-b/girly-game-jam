@@ -345,9 +345,11 @@ func generate_new_order():
 func game_over():
 	AudioManager.stop_music()
 
-	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score * 10)
+	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score * 4)
 	score_label.hide()
 	score_modal.show()
+	
+	Global.update_money(score*4)
 
 	set_process(false)
 

@@ -11,7 +11,6 @@ const ITEMS = {
 	"fridge": preload("res://scenes/furniture/floor/fridge.tscn"),
 	"kitchen_stove": preload("res://scenes/furniture/floor/kitchen_stove.tscn"),
 	"shelf": preload("res://scenes/furniture/floor/shelf.tscn"),
-	"shelf2": preload("res://scenes/furniture/floor/shelf2.tscn"),
 	"wc": preload("res://scenes/furniture/floor/wc.tscn"),
 	"bed": preload("res://scenes/furniture/floor/bed.tscn"),
 	"bathroom_sink": preload("res://scenes/furniture/floor/bathroom_sink.tscn"),
@@ -34,6 +33,8 @@ func _input(event: InputEvent) -> void:
 		visible = false
 
 func _ready() -> void:
+	Global.money_label = $Panel/CenterContainer/VBoxContainer/MoneyRow/MoneyBox/MoneyLabel
+	Global.update_money(0)
 	for item_name in ITEMS:
 		var btn = _find_button(item_name)
 		if btn:
@@ -48,12 +49,16 @@ func _find_button(item_name: String) -> TextureButton:
 	
 
 func _on_item_pressed(item_name: String) -> void:
-	var scene: PackedScene = ITEMS[item_name]
-	Global.placing_item = scene
+	if Global.has_money(200):
+		print("has money")
+		Global.update_money(-200)
+		
+		var scene: PackedScene = ITEMS[item_name]
+		Global.placing_item = scene
 
-	if "/wall/" in scene.resource_path:
-		Global.type_placing_item = "wall"
-	elif "/floor/" in scene.resource_path:
-		Global.type_placing_item = "floor"
+		if "/wall/" in scene.resource_path:
+			Global.type_placing_item = "wall"
+		elif "/floor/" in scene.resource_path:
+			Global.type_placing_item = "floor"
 
-	visible = false
+		visible = false
