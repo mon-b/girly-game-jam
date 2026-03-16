@@ -28,6 +28,35 @@ const ITEMS = {
 	"window2": preload("res://scenes/furniture/wall/window2.tscn"),
 }
 
+const PRICES = {
+	"lamp": 50,
+	"tv": 300,
+	"tub": 200,
+	"cat": 150,
+	"mirror": 80,
+	"painting": 120,
+	"bookcase": 180,
+	"fridge": 350,
+	"kitchen_stove": 400,
+	"shelf": 100,
+	"wc": 150,
+	"bed": 500,
+	"bathroom_sink": 130,
+	"sofa": 450,
+	"sofa2": 450,
+	"table": 200,
+	"drawers": 160,
+	"flower": 40,
+	"coffee_machine": 250,
+	"cat_feeder": 60,
+	"kitchen_deco1": 70,
+	"kitchen_deco2": 70,
+	"photos": 50,
+	"window": 90,
+	"window2": 90,
+}
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and visible:
 		visible = false
@@ -49,9 +78,8 @@ func _find_button(item_name: String) -> TextureButton:
 	
 
 func _on_item_pressed(item_name: String) -> void:
-	if Global.has_money(200):
-		print("has money")
-		Global.update_money(-200)
+	if Global.has_money(PRICES[item_name]):
+		Global.update_money(-PRICES[item_name])
 		
 		var scene: PackedScene = ITEMS[item_name]
 		Global.placing_item = scene
