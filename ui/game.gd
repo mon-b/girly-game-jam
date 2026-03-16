@@ -8,8 +8,8 @@ const FLOOR_Y1 = 324
 const FLOOR_Y2 = 212
 const WALL_TOP_Y = 150
 const WALL_BOTTOM_Y = 255
-const ROOM_X_MIN = 116
-const ROOM_X_MAX = 524
+const ROOM_X_MIN = 136
+const ROOM_X_MAX = 504
 
 func _ready():
 	AudioManager.play_music("res://assets/audio/music/Dollhouse.mp3", 0)
