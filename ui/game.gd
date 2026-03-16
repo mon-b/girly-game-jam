@@ -1,6 +1,8 @@
 extends Node2D
 
 var preview: Node2D = null
+var item_dragged: Node2D = null
+var drag_type: String = ""
 
 const FLOOR_Y1 = 324
 const FLOOR_Y2 = 212
@@ -41,11 +43,62 @@ func _process(_delta: float) -> void:
 				floor_y = FLOOR_Y2
 				
 			preview.position = Vector2(clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX), floor_y)
+	
+	if item_dragged != null:
+		var mouse = get_global_mouse_position()
+		if drag_type == "wall":
+			var mid = (WALL_TOP_Y + WALL_BOTTOM_Y) / 2.0
+			var wall_y
+			if mouse.y < mid:
+				wall_y = clamp(mouse.y, 140, FLOOR_Y2 - 10)
+			else:
+				wall_y = clamp(mouse.y, FLOOR_Y2 + 60, FLOOR_Y1 - 10)
+			item_dragged.position = Vector2(
+				clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX),
+				wall_y,
+			)
+		elif drag_type == "floor":
+			var floor_y
+			if mouse.y > (FLOOR_Y1 + FLOOR_Y2)/2:
+				floor_y = FLOOR_Y1
+			else:
+				floor_y = FLOOR_Y2
+				
+			item_dragged.position = Vector2(clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX), floor_y)
+			
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and Global.placing_item == null:
+		if item_dragged != null:
+			item_dragged.modulate.a = 1.0
+			item_dragged = null
+			drag_type = ""
+			return
+		
+		for item in $House/Furniture.get_children():
+			var mouse = get_global_mouse_position()
+			
+			if item == preview:
+				continue
+			
+			var child = item.get_node("Sprite2D")
+			var size = child.region_rect.size
+			
+			var rect = Rect2(item.position - size / 2, size)
+			
+			if rect.has_point(mouse):
+				item_dragged = item
+				if "wall" in item.scene_file_path:
+					drag_type = "wall"
+				elif "floor" in item.scene_file_path:
+					drag_type = "floor"
+				
+				item.modulate.a = 0.7
+				break
+
 	if Global.placing_item == null:
 		return
-
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		preview.modulate.a = 1.0
 		preview = null
