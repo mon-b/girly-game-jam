@@ -88,87 +88,53 @@ const TEXTURES = {
 }
 
 
-const FLOOR_TEXTURES = {
-	"floor_basic_pink": preload("res://assets/ui/house/floor/Floor-basic-pink.png"),
-	"floor_basic_blue": preload("res://assets/ui/house/floor/Floor-basic-blue.png"),
-	"floor_basic_purple": preload("res://assets/ui/house/floor/Floor-basic-purple.png"),
-	"floor_basic_turquoise": preload("res://assets/ui/house/floor/Floor-basic-turquoise.png"),
-	"floor_basic": preload("res://assets/ui/house/floor/Floor-basic.png"),
-	"floor_wood_caramel": preload("res://assets/ui/house/floor/Floor-wood-caramel.png"),
-	"floor_vwood_caramel": preload("res://assets/ui/house/floor/Floor-vwood-caramel.png"),
-	"floor_vwood_beige": preload("res://assets/ui/house/floor/Floor-vwood-beige.png"),
-	"floor_tiles_pink": preload("res://assets/ui/house/floor/Floor-tiles-pink.png"),
-	"floor_tiles_blue": preload("res://assets/ui/house/floor/Floor-tiles-blue.png"),
-	"floor_tiles_yellow": preload("res://assets/ui/house/floor/Floor-tiles-yellow.png"),
-	"floor_grass_light": preload("res://assets/ui/house/floor/Floor-grass-light.png"),
-	"floor_grass_dark": preload("res://assets/ui/house/floor/Floor-grass-dark.png"),
-	"floor_grass_magic": preload("res://assets/ui/house/floor/Floor-grass-magic.png"),
-}
+const FLOOR_DIR = "res://assets/ui/house/floor/"
+const WALLPAPER_DIR = "res://assets/ui/house/background/"
+const DEFAULT_FLOOR_PRICE = 100
+const DEFAULT_WALLPAPER_PRICE = 120
 
 const FLOOR_PRICES = {
-	"floor_basic_pink": 80,
-	"floor_basic_blue": 80,
-	"floor_basic_purple": 80,
-	"floor_basic_turquoise": 80,
-	"floor_basic": 60,
-	"floor_wood_caramel": 120,
-	"floor_vwood_caramel": 120,
-	"floor_vwood_beige": 120,
-	"floor_tiles_pink": 150,
-	"floor_tiles_blue": 150,
-	"floor_tiles_yellow": 150,
-	"floor_grass_light": 100,
-	"floor_grass_dark": 100,
-	"floor_grass_magic": 180,
-}
-
-const WALLPAPER_TEXTURES = {
-	"wp_stripes_pink": preload("res://assets/ui/house/background/Wallpaper-stripes-pink.png"),
-	"wp_stripes_blue": preload("res://assets/ui/house/background/Wallpaper-stripes-blue.png"),
-	"wp_stripes_purple": preload("res://assets/ui/house/background/Wallpaper-stripes-purple.png"),
-	"wp_stripes_turquoise": preload("res://assets/ui/house/background/Wallpaper-stripes-turquoise.png"),
-	"wp_stripes_green": preload("res://assets/ui/house/background/Wallpaper-stripes-green.png"),
-	"wp_stripes_beige": preload("res://assets/ui/house/background/Wallpaper-stripes-beige.png"),
-	"wp_vstripes": preload("res://assets/ui/house/background/Wallpaper-vstripes.png"),
-	"wp_ducks_pink": preload("res://assets/ui/house/background/Wallpaper-ducks-pink.png"),
-	"wp_ducks_blue": preload("res://assets/ui/house/background/Wallpaper-ducks-blue.png"),
-	"wp_ducks_yellow": preload("res://assets/ui/house/background/Wallpaper-ducks-yellow.png"),
-	"wp_wood_pink": preload("res://assets/ui/house/background/Wallpaper-wood-pink.png"),
-	"wp_wood_blue": preload("res://assets/ui/house/background/Wallpaper-wood-blue.png"),
-	"wp_wood_beige": preload("res://assets/ui/house/background/Wallpaper-wood-beige.png"),
-	"wp_wood_burgundy": preload("res://assets/ui/house/background/Wallpaper-wood-burgundy.png"),
-	"wp_wood_navy": preload("res://assets/ui/house/background/Wallpaper-wood-navy.png"),
-	"wp_vwood_pink": preload("res://assets/ui/house/background/Wallpaper-vwood-pink.png"),
-	"wp_vwood_blue": preload("res://assets/ui/house/background/Wallpaper-vwood-blue.png"),
-	"wp_vwood_beige": preload("res://assets/ui/house/background/Wallpaper-vwood-beige.png"),
-	"wp_vwood_burgundy": preload("res://assets/ui/house/background/Wallpaper-vwood-burgundy.png"),
-	"wp_vwood_navy": preload("res://assets/ui/house/background/Wallpaper-vwood-navy.png"),
+	"Floor-basic-pink": 80,
+	"Floor-basic-blue": 80,
+	"Floor-basic-purple": 80,
+	"Floor-basic-turquoise": 80,
+	"Floor-basic": 60,
+	"Floor-wood-caramel": 120,
+	"Floor-vwood-caramel": 120,
+	"Floor-vwood-beige": 120,
+	"Floor-tiles-pink": 150,
+	"Floor-tiles-blue": 150,
+	"Floor-tiles-yellow": 150,
+	"Floor-grass-light": 100,
+	"Floor-grass-dark": 100,
+	"Floor-grass-magic": 180,
 }
 
 const WALLPAPER_PRICES = {
-	"wp_stripes_pink": 100,
-	"wp_stripes_blue": 100,
-	"wp_stripes_purple": 100,
-	"wp_stripes_turquoise": 100,
-	"wp_stripes_green": 100,
-	"wp_stripes_beige": 100,
-	"wp_vstripes": 100,
-	"wp_ducks_pink": 140,
-	"wp_ducks_blue": 140,
-	"wp_ducks_yellow": 140,
-	"wp_wood_pink": 120,
-	"wp_wood_blue": 120,
-	"wp_wood_beige": 120,
-	"wp_wood_burgundy": 120,
-	"wp_wood_navy": 120,
-	"wp_vwood_pink": 120,
-	"wp_vwood_blue": 120,
-	"wp_vwood_beige": 120,
-	"wp_vwood_burgundy": 120,
-	"wp_vwood_navy": 120,
+	"Wallpaper-stripes-pink": 100,
+	"Wallpaper-stripes-blue": 100,
+	"Wallpaper-stripes-purple": 100,
+	"Wallpaper-stripes-turquoise": 100,
+	"Wallpaper-stripes-green": 100,
+	"Wallpaper-stripes-beige": 100,
+	"Wallpaper-vstripes": 100,
+	"Wallpaper-ducks-pink": 140,
+	"Wallpaper-ducks-blue": 140,
+	"Wallpaper-ducks-yellow": 140,
+	"Wallpaper-wood-pink": 120,
+	"Wallpaper-wood-blue": 120,
+	"Wallpaper-wood-beige": 120,
+	"Wallpaper-wood-burgundy": 120,
+	"Wallpaper-wood-navy": 120,
+	"Wallpaper-vwood-pink": 120,
+	"Wallpaper-vwood-blue": 120,
+	"Wallpaper-vwood-beige": 120,
+	"Wallpaper-vwood-burgundy": 120,
+	"Wallpaper-vwood-navy": 120,
 }
 
-# ── House Colors ─────────────────────────────────────────────────────────────
+var floor_textures: Dictionary = {}
+var wallpaper_textures: Dictionary = {}
 
 const HOUSE_COLORS = {
 	"pastel_pink": Color("ffcddfff"),
@@ -209,7 +175,22 @@ func _input(event: InputEvent) -> void:
 		visible = false
 		Global.shop_open = false
 
+func _load_dir(path: String) -> Dictionary:
+	var result = {}
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file = dir.get_next()
+		while file != "":
+			if file.ends_with(".png"):
+				result[file.get_basename()] = load(path + file)
+			file = dir.get_next()
+		dir.list_dir_end()
+	return result
+
 func _ready() -> void:
+	floor_textures = _load_dir(FLOOR_DIR)
+	wallpaper_textures = _load_dir(WALLPAPER_DIR)
 	Global.money_label = $Panel/MoneyBox/MoneyLabel
 	Global.update_money(0)
 	$TextureButton.pressed.connect(func(): visible = false; Global.shop_open = false)
@@ -242,23 +223,23 @@ func _populate_grid(cat: String) -> void:
 				card.buy_pressed.connect(_on_item_pressed)
 
 		Global.TYPE_FLOOR:
-			for item_name in FLOOR_TEXTURES:
+			for item_name in floor_textures:
 				var card = ShopCard.instantiate()
 				grid.add_child(card)
 				var atlas = AtlasTexture.new()
-				atlas.atlas = FLOOR_TEXTURES[item_name]
+				atlas.atlas = floor_textures[item_name]
 				atlas.region = Rect2(0, 0, 70, 15)
-				card.setup(item_name, FLOOR_PRICES[item_name], atlas, TextureRect.STRETCH_KEEP_CENTERED)
+				card.setup(item_name, FLOOR_PRICES.get(item_name, DEFAULT_FLOOR_PRICE), atlas, TextureRect.STRETCH_KEEP_CENTERED)
 				card.buy_pressed.connect(_on_item_pressed)
 
 		Global.TYPE_WALLPAPER:
-			for item_name in WALLPAPER_TEXTURES:
+			for item_name in wallpaper_textures:
 				var card = ShopCard.instantiate()
 				grid.add_child(card)
 				var atlas = AtlasTexture.new()
-				atlas.atlas = WALLPAPER_TEXTURES[item_name]
+				atlas.atlas = wallpaper_textures[item_name]
 				atlas.region = Rect2(0, 0, 60, 50)
-				card.setup(item_name, WALLPAPER_PRICES[item_name], atlas, TextureRect.STRETCH_KEEP_CENTERED)
+				card.setup(item_name, WALLPAPER_PRICES.get(item_name, DEFAULT_WALLPAPER_PRICE), atlas, TextureRect.STRETCH_KEEP_CENTERED)
 				card.buy_pressed.connect(_on_item_pressed)
 
 		Global.TYPE_HOUSE_COLOR:
@@ -282,18 +263,19 @@ func _on_item_pressed(item_name: String) -> void:
 				var scene: PackedScene = ITEMS[item_name]
 				Global.placing_item = scene
 				Global.placing_type = Global.TYPE_FURNITURE
+				Global.placing_item_price = price
 				if "/wall/" in scene.resource_path:
 					Global.type_placing_item = "wall"
 				elif "/floor/" in scene.resource_path:
 					Global.type_placing_item = "floor"
 
 			Global.TYPE_FLOOR:
-				Global.placing_item = FLOOR_TEXTURES[item_name]
+				Global.placing_item = floor_textures[item_name]
 				Global.placing_type = Global.TYPE_FLOOR
 				Global.placing_item_price = price
 
 			Global.TYPE_WALLPAPER:
-				Global.placing_item = WALLPAPER_TEXTURES[item_name]
+				Global.placing_item = wallpaper_textures[item_name]
 				Global.placing_type = Global.TYPE_WALLPAPER
 				Global.placing_item_price = price
 
@@ -311,8 +293,8 @@ func _on_item_pressed(item_name: String) -> void:
 func _get_price(item_name: String) -> int:
 	match current_category:
 		Global.TYPE_FURNITURE: return PRICES[item_name]
-		Global.TYPE_FLOOR:     return FLOOR_PRICES[item_name]
-		Global.TYPE_WALLPAPER: return WALLPAPER_PRICES[item_name]
+		Global.TYPE_FLOOR:     return FLOOR_PRICES.get(item_name, DEFAULT_FLOOR_PRICE)
+		Global.TYPE_WALLPAPER: return WALLPAPER_PRICES.get(item_name, DEFAULT_WALLPAPER_PRICE)
 		Global.TYPE_HOUSE_COLOR: return 5
 	return 0
 

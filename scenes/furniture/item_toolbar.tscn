@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dw15t51248uti"]
+
+[ext_resource type="Texture2D" uid="uid://bv4p6fynlm4wb" path="res://assets/ui/Build-mode-edit.png" id="1_2ig5f"]
+[ext_resource type="Script" uid="uid://dwcsgxwdelfrl" path="res://scenes/furniture/item_toolbar.gd" id="1_bggqa"]
+[ext_resource type="Texture2D" uid="uid://brq0tkqs72v3p" path="res://assets/ui/Build-mode-delete.png" id="2_bggqa"]
+
+[node name="ItemToolbar" type="Node2D" unique_id=1686554389]
+script = ExtResource("1_bggqa")
+
+[node name="MoveButton" type="TextureButton" parent="." unique_id=44471822]
+offset_right = 11.0
+offset_bottom = 11.0
+texture_normal = ExtResource("1_2ig5f")
+
+[node name="DeleteButton" type="TextureButton" parent="." unique_id=1103248192]
+offset_left = 15.0
+offset_right = 26.0
+offset_bottom = 11.0
+texture_normal = ExtResource("2_bggqa")

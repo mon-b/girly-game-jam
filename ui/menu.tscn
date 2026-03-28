@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://cb5mxska8t0n4" path="res://ui/game.gd" id="1_4c782"]
 [ext_resource type="PackedScene" uid="uid://d3xea3jfr6574" path="res://scenes/house/house.tscn" id="1_udkah"]
 [ext_resource type="PackedScene" uid="uid://br8idbt3jg6ni" path="res://ui/buttons.tscn" id="2_4c782"]
+[ext_resource type="Texture2D" uid="uid://cyd4prrpct5ln" path="res://assets/buttons.png" id="4_fcydj"]
+[ext_resource type="Texture2D" uid="uid://d2rdrtpvywaaf" path="res://assets/ui/Buttons-build-mode.png" id="5_jbsda"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bcp5"]
+atlas = ExtResource("4_fcydj")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8jcj"]
+atlas = ExtResource("5_jbsda")
+region = Rect2(0, 0, 48, 48)
 
 [node name="Game" type="Node2D" unique_id=479629583]
 script = ExtResource("1_4c782")
@@ -15,8 +25,15 @@ offset_top = 0.0
 offset_right = 640.0
 offset_bottom = 360.0
 
+[node name="Camera" parent="VBoxContainer" index="0" unique_id=1210502227]
+texture_normal = SubResource("AtlasTexture_0bcp5")
+
+[node name="Edit" parent="VBoxContainer" index="1" unique_id=1345688983]
+texture_normal = SubResource("AtlasTexture_l8jcj")
+
 [connection signal="pressed" from="VBoxContainer/Camera" to="." method="_on_camera_pressed"]
-[connection signal="pressed" from="VBoxContainer/Decorate" to="." method="_on_decorate_pressed"]
+[connection signal="pressed" from="VBoxContainer/Edit" to="." method="_on_decorate_pressed"]
+[connection signal="pressed" from="VBoxContainer/Edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Door" to="." method="_on_door_pressed"]
 
 [editable path="VBoxContainer"]

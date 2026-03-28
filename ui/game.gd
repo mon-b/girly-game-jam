@@ -1,8 +1,12 @@
 extends Node2D
 
+const ItemToolbar = preload("res://scenes/furniture/item_toolbar.tscn")
+
 var preview: Node2D = null
 var item_dragged: Node2D = null
 var drag_type: String = ""
+var toolbar: Node2D = null
+var selected_item: Node2D = null
 
 const FLOOR_Y1 = 304
 const FLOOR_Y2 = 192
@@ -17,6 +21,10 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	$VBoxContainer.visible = Global.placing_item == null and not Global.shop_open
+	for button in $VBoxContainer.get_children():
+		if button.name == "Edit":
+			continue
+		button.mouse_filter = Control.MOUSE_FILTER_IGNORE if Global.edit_mode else Control.MOUSE_FILTER_STOP
 
 	if Global.placing_item != null and preview == null and Global.placing_type == Global.TYPE_FURNITURE:
 			preview = Global.placing_item.instantiate()
@@ -81,27 +89,25 @@ func _unhandled_input(event: InputEvent) -> void:
 			item_dragged = null
 			drag_type = ""
 			return
-		
+
+		if not Global.edit_mode:
+			return
+
+		var mouse = get_global_mouse_position()
+		var clicked_item = null
 		for item in $House/Furniture.get_children():
-			var mouse = get_global_mouse_position()
-			
 			if item == preview:
 				continue
-			
-			var child = item.get_node("Sprite2D")
-			var size = child.region_rect.size
-			
+			var size = item.get_node("Sprite2D").region_rect.size
 			var rect = Rect2(item.position - size / 2, size)
-			
 			if rect.has_point(mouse):
-				item_dragged = item
-				if "wall" in item.scene_file_path:
-					drag_type = "wall"
-				elif "floor" in item.scene_file_path:
-					drag_type = "floor"
-				
-				item.modulate.a = 0.7
+				clicked_item = item
 				break
+
+		if clicked_item:
+			_show_toolbar(clicked_item)
+		else:
+			_hide_toolbar()
 
 	if Global.placing_item == null:
 		return
@@ -109,6 +115,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if Global.placing_type == Global.TYPE_FURNITURE:
 			preview.modulate.a = 1.0
+			preview.set_meta("price", Global.placing_item_price)
 			preview = null
 			Global.placing_item = null
 			Global.placing_type = ""
@@ -131,7 +138,8 @@ func _save_furniture() -> void:
 	for item in $House/Furniture.get_children():
 		Global.placed_furniture.append({
 			"scene_path": item.scene_file_path,
-			"position": item.position
+			"position": item.position,
+			"price": item.get_meta("price", 0)
 		})
 	Global.room_states.clear()
 	for room in [$House/Room1, $House/Room2, $House/Room3, $House/Room4]:
@@ -143,6 +151,7 @@ func _restore_furniture() -> void:
 		if scene:
 			var item = scene.instantiate()
 			item.position = data["position"]
+			item.set_meta("price", data.get("price", 0))
 			$House/Furniture.add_child(item)
 	var rooms = [$House/Room1, $House/Room2, $House/Room3, $House/Room4]
 	for i in rooms.size():
@@ -250,9 +259,63 @@ var bg_colors = [
 var curr_color_index = 0
 
 func _on_decorate_pressed():
-	if curr_color_index == bg_colors.size()-1:
-		curr_color_index = 0
-	elif bg_colors.size() > 1:
-		curr_color_index += 1
+	Global.edit_mode = not Global.edit_mode
+	if Global.edit_mode:
+		_start_wiggle()
+	else:
+		_stop_wiggle()
+		_hide_toolbar()
 
-	RenderingServer.set_default_clear_color(Color(bg_colors[curr_color_index]))
+func _start_wiggle() -> void:
+	for item in $House/Furniture.get_children():
+		if item == preview:
+			continue
+		var tween = create_tween().set_loops()
+		tween.tween_property(item, "rotation_degrees", 2.0, 0.1)
+		tween.tween_property(item, "rotation_degrees", -2.0, 0.1)
+		item.set_meta("wiggle_tween", tween)
+
+func _stop_wiggle() -> void:
+	for item in $House/Furniture.get_children():
+		if item == preview:
+			continue
+		if item.has_meta("wiggle_tween"):
+			item.get_meta("wiggle_tween").kill()
+			item.remove_meta("wiggle_tween")
+		item.rotation_degrees = 0.0
+
+func _show_toolbar(item: Node2D) -> void:
+	if toolbar == null:
+		toolbar = ItemToolbar.instantiate()
+		toolbar.move_pressed.connect(_on_toolbar_move)
+		toolbar.delete_pressed.connect(_on_toolbar_delete)
+		add_child(toolbar)
+	if selected_item:
+		selected_item.modulate = Color(1, 1, 1, 1)
+	selected_item = item
+	item.modulate = Color(1, 1, 1, 0.7)
+	toolbar.setup(item)
+	toolbar.show()
+
+func _hide_toolbar() -> void:
+	if selected_item:
+		selected_item.modulate = Color(1, 1, 1, 1)
+		selected_item = null
+	if toolbar:
+		toolbar.hide()
+
+func _on_toolbar_move(item: Node2D) -> void:
+	_hide_toolbar()
+	item_dragged = item
+	if "wall" in item.scene_file_path:
+		drag_type = "wall"
+	elif "floor" in item.scene_file_path:
+		drag_type = "floor"
+	item.modulate.a = 0.7
+
+func _on_toolbar_delete(item: Node2D) -> void:
+	Global.update_money(item.get_meta("price", 0))
+	if item.has_meta("wiggle_tween"):
+		item.get_meta("wiggle_tween").kill()
+	_hide_toolbar()
+	item.queue_free()

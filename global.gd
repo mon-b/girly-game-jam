@@ -6,6 +6,7 @@ const TYPE_WALLPAPER = "wallpaper"
 const TYPE_HOUSE_COLOR = "house_color"
 
 var shop_open: bool = false
+var edit_mode: bool = false
 var placing_item = null
 var placing_type: String = ""
 var placing_item_price: int = 0
