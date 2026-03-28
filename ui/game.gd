@@ -25,6 +25,9 @@ func _process(_delta: float) -> void:
 
 	if preview != null:
 		var mouse = get_global_mouse_position()
+		var half_w = preview.get_node("Sprite2D").region_rect.size.x / 2.0
+		var x_min = ROOM_X_MIN + half_w + 4
+		var x_max = ROOM_X_MAX - half_w - 4
 		if Global.type_placing_item == "wall":
 			var mid = (WALL_TOP_Y + WALL_BOTTOM_Y) / 2.0
 			var wall_y
@@ -33,7 +36,7 @@ func _process(_delta: float) -> void:
 			else:
 				wall_y = clamp(mouse.y, FLOOR_Y2 + 60, FLOOR_Y1 - 10)
 			preview.position = Vector2(
-				clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX),
+				clamp(mouse.x, x_min, x_max),
 				wall_y,
 			)
 		elif Global.type_placing_item == "floor":
@@ -42,11 +45,14 @@ func _process(_delta: float) -> void:
 				floor_y = FLOOR_Y1
 			else:
 				floor_y = FLOOR_Y2
-				
-			preview.position = Vector2(clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX), floor_y)
+
+			preview.position = Vector2(clamp(mouse.x, x_min, x_max), floor_y)
 	
 	if item_dragged != null:
 		var mouse = get_global_mouse_position()
+		var half_w = item_dragged.get_node("Sprite2D").region_rect.size.x / 2.0
+		var x_min = ROOM_X_MIN + half_w + 4
+		var x_max = ROOM_X_MAX - half_w - 4
 		if drag_type == "wall":
 			var mid = (WALL_TOP_Y + WALL_BOTTOM_Y) / 2.0
 			var wall_y
@@ -55,7 +61,7 @@ func _process(_delta: float) -> void:
 			else:
 				wall_y = clamp(mouse.y, FLOOR_Y2 + 60, FLOOR_Y1 - 10)
 			item_dragged.position = Vector2(
-				clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX),
+				clamp(mouse.x, x_min, x_max),
 				wall_y,
 			)
 		elif drag_type == "floor":
@@ -64,8 +70,8 @@ func _process(_delta: float) -> void:
 				floor_y = FLOOR_Y1
 			else:
 				floor_y = FLOOR_Y2
-				
-			item_dragged.position = Vector2(clamp(mouse.x, ROOM_X_MIN, ROOM_X_MAX), floor_y)
+
+			item_dragged.position = Vector2(clamp(mouse.x, x_min, x_max), floor_y)
 			
 
 func _unhandled_input(event: InputEvent) -> void:
