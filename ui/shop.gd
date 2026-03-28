@@ -188,11 +188,13 @@ func _load_dir(path: String) -> Dictionary:
 		dir.list_dir_end()
 	return result
 
+func _refresh_money_label() -> void:
+	$Panel/MoneyBox/MoneyLabel.text = str(Global.money)
+
 func _ready() -> void:
 	floor_textures = _load_dir(FLOOR_DIR)
 	wallpaper_textures = _load_dir(WALLPAPER_DIR)
-	Global.money_label = $Panel/MoneyBox/MoneyLabel
-	Global.update_money(0)
+	_refresh_money_label()
 	$TextureButton.pressed.connect(func(): visible = false; Global.shop_open = false)
 	$Panel/Sidebar/Cat1.pressed.connect(func(): _set_category(Global.TYPE_FURNITURE))
 	$Panel/Sidebar/Cat2.pressed.connect(func(): _set_category(Global.TYPE_WALLPAPER))
@@ -257,6 +259,7 @@ func _on_item_pressed(item_name: String) -> void:
 
 	if Global.has_money(price):
 		Global.update_money(-price)
+		_refresh_money_label()
 
 		match current_category:
 			Global.TYPE_FURNITURE:
@@ -281,6 +284,7 @@ func _on_item_pressed(item_name: String) -> void:
 
 			Global.TYPE_HOUSE_COLOR:
 				Global.update_money(Global.current_house_color_price)
+				_refresh_money_label()
 				Global.current_house_color_price = price
 				Global.current_house_color = HOUSE_COLORS[item_name]
 				RenderingServer.set_default_clear_color(HOUSE_COLORS[item_name])
