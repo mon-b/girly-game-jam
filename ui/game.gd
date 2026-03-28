@@ -16,11 +16,12 @@ func _ready():
 	_restore_furniture()
 
 func _process(_delta: float) -> void:
-	
-	if Global.placing_item != null and preview == null:
-		preview = Global.placing_item.instantiate()
-		preview.modulate.a = 0.5
-		$House/Furniture.add_child(preview)
+	$VBoxContainer.visible = Global.placing_item == null and not Global.shop_open
+
+	if Global.placing_item != null and preview == null and Global.placing_type == Global.TYPE_FURNITURE:
+			preview = Global.placing_item.instantiate()
+			preview.modulate.a = 0.5
+			$House/Furniture.add_child(preview)
 
 	if preview != null:
 		var mouse = get_global_mouse_position()
@@ -100,14 +101,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		preview.modulate.a = 1.0
-		preview = null
-		Global.placing_item = null
+		if Global.placing_type == Global.TYPE_FURNITURE:
+			preview.modulate.a = 1.0
+			preview = null
+			Global.placing_item = null
+			Global.placing_type = ""
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-		preview.queue_free()
-		preview = null
+		if Global.placing_type == Global.TYPE_FURNITURE:
+			preview.queue_free()
+			preview = null
+		else:
+			Global.update_money(Global.placing_item_price)
 		Global.placing_item = null
+		Global.placing_type = ""
 
 # ========================
 # Handle door button press
@@ -120,6 +127,9 @@ func _save_furniture() -> void:
 			"scene_path": item.scene_file_path,
 			"position": item.position
 		})
+	Global.room_states.clear()
+	for room in [$House/Room1, $House/Room2, $House/Room3, $House/Room4]:
+		Global.room_states.append(room.get_state())
 
 func _restore_furniture() -> void:
 	for data in Global.placed_furniture:
@@ -128,6 +138,10 @@ func _restore_furniture() -> void:
 			var item = scene.instantiate()
 			item.position = data["position"]
 			$House/Furniture.add_child(item)
+	var rooms = [$House/Room1, $House/Room2, $House/Room3, $House/Room4]
+	for i in rooms.size():
+		if i < Global.room_states.size():
+			rooms[i].set_state(Global.room_states[i])
 
 func _on_door_pressed():
 	_save_furniture()
@@ -206,7 +220,6 @@ var bg_colors = [
 	"cca886ff", # light brown
 	"c2c3c2ff", # light gray
 	"f6f2f2ff", # white
-	# ----
 	"db3a91ff", # bright pink
 	"7101ddff", # bright purple
 	"1b20ffff", # bright blue
@@ -216,7 +229,6 @@ var bg_colors = [
 	"f89835ff", # bright orange
 	"a86944ff", # medium brown
 	"86737dff", # medium gray
-	# ----
 	"440025ff", # dark pink
 	"33184cff", # dark purple
 	"252c68ff", # dark blue

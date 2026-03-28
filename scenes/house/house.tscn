@@ -1,18 +1,31 @@
 [gd_scene format=3 uid="uid://d3xea3jfr6574"]
 
-[ext_resource type="Texture2D" uid="uid://bwhd1wu8vvt4f" path="res://assets/House.png" id="5_cr554"]
+[ext_resource type="PackedScene" uid="uid://bxt3eonn1gutt" path="res://scenes/house/room.tscn" id="1_44bws"]
+[ext_resource type="Texture2D" uid="uid://dnm8ca8mhve8b" path="res://assets/House-improved.png" id="1_mm0xd"]
 [ext_resource type="PackedScene" uid="uid://c0h38f3ddvnqm" path="res://scenes/walls/vertical_wall.tscn" id="6_cr554"]
 [ext_resource type="PackedScene" uid="uid://bemiihq0ja77e" path="res://scenes/player/player.tscn" id="7_cr554"]
 
 [node name="House" type="Node2D" unique_id=592924595]
 metadata/_edit_vertical_guides_ = [942.0, 527.0]
-metadata/_edit_horizontal_guides_ = [209.0, 333.0, 321.0, 317.0, 205.0, 215.0, 327.0, 221.0, 340.0]
+metadata/_edit_horizontal_guides_ = [208.0, 320.0, 356.0, 225.0, 337.0]
+
+[node name="Room1" parent="." unique_id=1170990065 instance=ExtResource("1_44bws")]
+position = Vector2(120, 120)
+
+[node name="Room2" parent="." unique_id=1617953078 instance=ExtResource("1_44bws")]
+position = Vector2(325, 120)
+
+[node name="Room3" parent="." unique_id=1777830500 instance=ExtResource("1_44bws")]
+position = Vector2(120, 232)
+
+[node name="Room4" parent="." unique_id=1813160116 instance=ExtResource("1_44bws")]
+position = Vector2(325, 232)
 
 [node name="background" type="Node2D" parent="." unique_id=994465101]
 
 [node name="bg" type="Sprite2D" parent="background" unique_id=683685516]
 position = Vector2(320, 180)
-texture = ExtResource("5_cr554")
+texture = ExtResource("1_mm0xd")
 
 [node name="Vwall1" parent="background" unique_id=848799471 instance=ExtResource("6_cr554")]
 position = Vector2(116, 228)
@@ -23,9 +36,8 @@ position = Vector2(524, 228)
 [node name="Furniture" type="Node2D" parent="." unique_id=828031650]
 
 [node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
-position = Vector2(134, 195)
+position = Vector2(134, 194)
 scale = Vector2(1, 1)
-speed = null
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=829580266]
 offset_left = 317.0

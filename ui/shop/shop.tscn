@@ -1,272 +1,126 @@
 [gd_scene format=3 uid="uid://chddkjqyhe75b"]
 
-[ext_resource type="Texture2D" uid="uid://dliv4y1xvmvua" path="res://assets/sprites/Furniture.png" id="1_4d8gw"]
-[ext_resource type="Script" uid="uid://ikf3o1d4cafo" path="res://ui/shop/shop_button.gd" id="1_qn6t7"]
-[ext_resource type="Texture2D" uid="uid://epf5gs53awsd" path="res://assets/juice-shop/Score_modal_button.png" id="3_fre4r"]
-[ext_resource type="Texture2D" uid="uid://ba3n6teb4cqbq" path="res://assets/juice-shop/Score_modal.png" id="3_n5hkn"]
-[ext_resource type="FontFile" uid="uid://di0hmduvbgxi1" path="res://assets/fonts/retro-pixel-thick.ttf.woff2" id="4_fre4r"]
+[ext_resource type="Script" uid="uid://tg8sbmpbv18j" path="res://ui/shop.gd" id="1_qn6t7"]
+[ext_resource type="Texture2D" uid="uid://tibmlgr5liya" path="res://assets/ui/shop/Shop-modal.png" id="2_modal"]
+[ext_resource type="Texture2D" uid="uid://dum2ej5h3sj1k" path="res://assets/ui/shop/Shop-money-box.png" id="3_money"]
+[ext_resource type="Texture2D" uid="uid://cjy75uxnr6hhv" path="res://assets/ui/shop/Shop-category1.png" id="4_cat1"]
+[ext_resource type="Texture2D" uid="uid://br5y2oxcv175f" path="res://assets/ui/shop/Shop-category2.png" id="5_cat2"]
+[ext_resource type="Texture2D" uid="uid://iwjrxcsxd0ff" path="res://assets/ui/shop/Shop-category3.png" id="6_cat3"]
+[ext_resource type="Texture2D" uid="uid://6347t7nliqwj" path="res://assets/ui/shop/Shop-category4.png" id="7_cat4"]
+[ext_resource type="FontFile" uid="uid://di0hmduvbgxi1" path="res://assets/fonts/retro-pixel-thick.ttf.woff2" id="8_font"]
+[ext_resource type="Texture2D" uid="uid://iigaqar0d8jn" path="res://assets/ui/shop/Shop-close.png" id="9_pdcls"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wpfl"]
-texture = ExtResource("3_n5hkn")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7a8tg"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(272, 32, 64, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qn6t7"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(288, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wc448"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(448, 48, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1e24"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(336, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pht32"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(320, 144, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_win64"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(64, 144, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wn212"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(128, 144, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ts8k4"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(352, 32, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fre4r"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(128, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6sm0v"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(128, 32, 16, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xu3r1"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(80, 32, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rg5ln"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(384, 144, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_flw20"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(206, 144, 19, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_frd32"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(544, 32, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kst96"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(496, 32, 32, 48)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qn6t7"]
-load_path = "res://.godot/imported/Furniture.png-77d9044bad3b5a588669674777cbf6ad.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcwo1"]
-atlas = SubResource("CompressedTexture2D_qn6t7")
-region = Rect2(544, 80, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drw17"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(176, 144, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbl22"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(224, 96, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kd138"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(384, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kd243"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(432, 96, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wpfl"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(48, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sfa16"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(160, 96, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sf214"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(240, 144, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5hkn"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(160, 32, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shf16"]
-atlas = ExtResource("1_4d8gw")
-region = Rect2(208, 16, 48, 64)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_modal"]
+texture = ExtResource("2_modal")
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=391846603]
 script = ExtResource("1_qn6t7")
+metadata/_edit_vertical_guides_ = [639.0, 320.0, 138.0, 484.0, 1.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1770340306]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 0.5529412)
 
 [node name="Panel" type="Panel" parent="." unique_id=1650257910]
-offset_left = 98.0
-offset_top = 11.0
-offset_right = 538.0
-offset_bottom = 351.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_5wpfl")
+offset_left = 138.0
+offset_top = 115.0
+offset_right = 466.0
+offset_bottom = 309.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_modal")
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=386733205]
+[node name="MoneyBox" type="TextureRect" parent="Panel" unique_id=1443559722]
 layout_mode = 0
-offset_top = 28.0
-offset_right = 440.0
-offset_bottom = 311.0
+offset_left = 132.0
+offset_top = -50.0
+offset_right = 232.0
+offset_bottom = -9.0
+texture = ExtResource("3_money")
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=2102098448]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="MoneyRow" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=589857868]
-layout_mode = 2
-alignment = 1
-
-[node name="MoneyBox" type="TextureRect" parent="Panel/CenterContainer/VBoxContainer/MoneyRow" unique_id=1443559722]
-self_modulate = Color(0.73277074, 0.6646736, 0.49655086, 1)
-layout_mode = 2
-texture = ExtResource("3_fre4r")
-
-[node name="MoneyLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer/MoneyRow/MoneyBox" unique_id=156696641]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 1.0
-offset_right = 81.0
-offset_bottom = 24.0
+[node name="MoneyLabel" type="Label" parent="Panel/MoneyBox" unique_id=156696641]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.3923233, 0.21760213, 0.17690092, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_fre4r")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("8_font")
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="row1" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=1970243538]
-layout_mode = 2
+[node name="Sidebar" type="VBoxContainer" parent="Panel" unique_id=100000002]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 25.0
+offset_right = 35.0
+offset_bottom = 172.0
+theme_override_constants/separation = 6
 alignment = 1
 
-[node name="tub" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=1394353178]
+[node name="Cat1" type="TextureButton" parent="Panel/Sidebar" unique_id=100000003]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_7a8tg")
+texture_normal = ExtResource("4_cat1")
 
-[node name="bathroom_sink" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=1497783861]
+[node name="Cat2" type="TextureButton" parent="Panel/Sidebar" unique_id=100000004]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_qn6t7")
+texture_normal = ExtResource("5_cat2")
 
-[node name="wc" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=371846920]
+[node name="Cat3" type="TextureButton" parent="Panel/Sidebar" unique_id=100000005]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_wc448")
+texture_normal = ExtResource("6_cat3")
 
-[node name="mirror" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=1774963074]
+[node name="Cat4" type="TextureButton" parent="Panel/Sidebar" unique_id=100000006]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_c1e24")
+texture_normal = ExtResource("7_cat4")
 
-[node name="photos" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=648291073]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pht32")
+[node name="CenterContainer" type="MarginContainer" parent="Panel" unique_id=873982381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
 
-[node name="window" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=215784930]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=2102098448]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_win64")
+size_flags_vertical = 3
 
-[node name="window2" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row1" unique_id=491827364]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=1595053053]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_wn212")
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="row2" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=461424674]
+[node name="GridMargin" type="MarginContainer" parent="Panel/CenterContainer/VBoxContainer/ScrollContainer" unique_id=100000007]
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
 
-[node name="cat" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row2" unique_id=313337762]
+[node name="GridContainer" type="GridContainer" parent="Panel/CenterContainer/VBoxContainer/ScrollContainer/GridMargin" unique_id=2117372160]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ts8k4")
+size_flags_horizontal = 3
+columns = 3
 
-[node name="cat_feeder" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row2" unique_id=796396811]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_fre4r")
-
-[node name="lamp" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row2" unique_id=57707713]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_6sm0v")
-
-[node name="tv" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row2" unique_id=1661047578]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_xu3r1")
-
-[node name="painting" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row2" unique_id=444692433]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_rg5ln")
-
-[node name="flower" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row2" unique_id=156392847]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_flw20")
-
-[node name="row3" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=582947163]
-layout_mode = 2
-alignment = 1
-
-[node name="fridge" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=738201946]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_frd32")
-
-[node name="kitchen_stove" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=194837562]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_kst96")
-
-[node name="coffee_machine" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=465229682]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_kcwo1")
-
-[node name="drawers" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=937264815]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_drw17")
-
-[node name="table" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=245819037]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_tbl22")
-
-[node name="kitchen_deco1" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=847291035]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_kd138")
-
-[node name="kitchen_deco2" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row3" unique_id=362748190]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_kd243")
-
-[node name="row4" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=519283746]
-layout_mode = 2
-alignment = 1
-
-[node name="bed" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row4" unique_id=418904442]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_5wpfl")
-
-[node name="sofa" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row4" unique_id=473891026]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_sfa16")
-
-[node name="sofa2" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row4" unique_id=829164738]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_sf214")
-
-[node name="bookcase" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row4" unique_id=903331284]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_n5hkn")
-
-[node name="shelf" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/row4" unique_id=673829104]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_shf16")
+[node name="TextureButton" type="TextureButton" parent="." unique_id=845652544]
+offset_left = 474.0
+offset_top = 115.0
+offset_right = 494.0
+offset_bottom = 135.0
+texture_normal = ExtResource("9_pdcls")

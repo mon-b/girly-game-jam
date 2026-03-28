@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cu4c83obkl6gk"]
+
+[ext_resource type="Script" uid="uid://0wfe4nc7q148" path="res://ui/new_shop/shop_card.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cv8giidaput2v" path="res://assets/ui/shop/Shop-card.png" id="2_card"]
+[ext_resource type="Texture2D" uid="uid://ble2rav0a3jtw" path="res://assets/ui/shop/Shop-card-cost.png" id="3_cost"]
+[ext_resource type="Texture2D" uid="uid://cohgg6j4vj30s" path="res://assets/ui/shop/Shop-card-button.png" id="4_btn"]
+[ext_resource type="FontFile" uid="uid://di0hmduvbgxi1" path="res://assets/fonts/retro-pixel-thick.ttf.woff2" id="5_font"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_card"]
+texture = ExtResource("2_card")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btn"]
+texture = ExtResource("4_btn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cost"]
+texture = ExtResource("3_cost")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="Shop Card" type="Panel" unique_id=2060146289]
+custom_minimum_size = Vector2(80, 90)
+size_flags_horizontal = 3
+script = ExtResource("1_script")
+theme_override_styles/panel = SubResource("StyleBoxTexture_card")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1866129958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1422043507]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="BottomRow" type="HBoxContainer" parent="VBoxContainer" unique_id=209185396]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 2
+
+[node name="PricePanel" type="Panel" parent="VBoxContainer/BottomRow" unique_id=100000010]
+custom_minimum_size = Vector2(30, 14)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cost")
+
+[node name="PriceLabel" type="Label" parent="VBoxContainer/BottomRow/PricePanel" unique_id=35450211]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_font")
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="VBoxContainer/BottomRow" unique_id=712242575]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_font")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "buy"

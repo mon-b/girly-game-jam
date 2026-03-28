@@ -135,10 +135,6 @@ func update_ui():
 # ========================
 
 func handle_input():
-	if Input.is_action_just_pressed("ui_cancel"):
-		Global.change_scene("res://ui/menu.tscn")
-		return
-
 	if Input.is_action_just_pressed("left"):
 		move_cup(-1)
 	elif Input.is_action_just_pressed("right"):
@@ -348,7 +344,9 @@ func game_over():
 	earnings_label.text = "Score: " + str(score) + "\nEarnings: " + str(score * 4)
 	score_label.hide()
 	score_modal.show()
-	
+	$ColorRect.show()
+	$LeaveButton.hide()
+
 	Global.update_money(score*4)
 
 	set_process(false)
@@ -394,7 +392,14 @@ func animate_pump_stream(pump_pos: CupPosition):
 # =========================
 
 func _on_play_again_pressed():
+	$ColorRect.hide()
+	score_modal.hide()
+	$LeaveButton.show()
 	Global.change_scene("res://scenes/minigames/juice_shop.tscn")
+
+func _on_leave_early_pressed():
+	Global.update_money(score * 4)
+	Global.change_scene("res://ui/menu.tscn")
 
 func _on_leave_minigame_pressed():
 	Global.change_scene("res://ui/menu.tscn")

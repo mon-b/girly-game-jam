@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxt3eonn1gutt"]
+
+[ext_resource type="Script" uid="uid://b4pol1eps3c0v" path="res://scenes/house/room.gd" id="1_2rit4"]
+[ext_resource type="Texture2D" uid="uid://hdspcjdx2rwr" path="res://assets/ui/house/background/Wallpaper-vstripes.png" id="1_sklfd"]
+[ext_resource type="Texture2D" uid="uid://b32d77wpgnhh3" path="res://assets/ui/house/floor/Floor-basic.png" id="2_2rit4"]
+
+[node name="Room" type="Node2D" unique_id=1170990065]
+script = ExtResource("1_2rit4")
+
+[node name="Wallpaper" type="TextureRect" parent="." unique_id=1802851663]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_sklfd")
+
+[node name="Floor" type="TextureRect" parent="." unique_id=174329684]
+offset_top = 89.0
+offset_right = 195.0
+offset_bottom = 104.0
+texture = ExtResource("2_2rit4")

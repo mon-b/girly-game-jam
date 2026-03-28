@@ -84,6 +84,12 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("8_r2vkq")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=293152108]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 0.5529412)
+
 [node name="ScoreModal" type="TextureRect" parent="." unique_id=401003938]
 visible = false
 offset_left = 175.0
@@ -146,5 +152,24 @@ text = "Go Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LeaveButton" type="TextureButton" parent="." unique_id=1467580086]
+offset_left = 534.0
+offset_top = 18.0
+offset_right = 617.0
+offset_bottom = 58.0
+texture_normal = ExtResource("10_vjlo0")
+
+[node name="Label2" type="Label" parent="LeaveButton" unique_id=1778404716]
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0.59226036, 0.24470109, 0.30104855, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5epfq")
+text = "Leave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="ScoreModal/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="ScoreModal/LeaveMinigame" to="." method="_on_leave_minigame_pressed"]
+[connection signal="pressed" from="LeaveButton" to="." method="_on_leave_early_pressed"]
