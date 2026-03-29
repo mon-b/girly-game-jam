@@ -5,7 +5,7 @@ const TEXTURE_EDIT = preload("res://assets/ui/Buttons-build.png")
 const TEXTURE_CONFIRM = preload("res://assets/ui/Buttons-confirm.png")
 
 @onready var tutorial_modal = $TutorialModal
-@onready var fruit_bowl = $FruitBowl
+@onready var fruit_bowl = $House/FruitBowl
 
 var preview: Node2D = null
 var item_dragged: Node2D = null
@@ -26,6 +26,7 @@ func _ready():
 	if Global.tutorial_seen:
 		tutorial_modal.hide()
 	fruit_bowl.player = $House/Player
+	fruit_bowl.pressed.connect(_on_door_pressed)
 
 func _process(_delta: float) -> void:
 	$VBoxContainer.visible = Global.placing_item == null and not Global.shop_open

@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bv4p6fynlm4wb" path="res://assets/ui/Build-mode-edit.png" id="12_c5cit"]
 [ext_resource type="Texture2D" uid="uid://brq0tkqs72v3p" path="res://assets/ui/Build-mode-delete.png" id="13_lf6dv"]
 [ext_resource type="Texture2D" uid="uid://0njs0vd1apeb" path="res://assets/ui/Buttons-shop.png" id="14_is7kr"]
-[ext_resource type="PackedScene" uid="uid://by0q5vrx1m3tb" path="res://scenes/furniture/interactive/fruit.tscn" id="17_akon5"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_u22un"]
 color = Color(0.5392586, 0.23342228, 0.22215709, 0.54901963)
@@ -27,9 +26,6 @@ vertical = true
 script = ExtResource("1_4c782")
 
 [node name="House" parent="." unique_id=592924595 instance=ExtResource("1_udkah")]
-
-[node name="FruitBowl" parent="." unique_id=1869846928 instance=ExtResource("17_akon5")]
-position = Vector2(212, 201)
 
 [node name="VBoxContainer" parent="." unique_id=2080362688 instance=ExtResource("2_4c782")]
 offset_left = 560.0
@@ -171,7 +167,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="VBoxContainer/Edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Edit" to="." method="_on_decorate_pressed"]
 [connection signal="pressed" from="VBoxContainer/Door" to="." method="_on_door_pressed"]
-[connection signal="pressed" from="FruitBowl" to="." method="_on_door_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="TutorialModal/9Rect/CloseTutorial" to="." method="_on_close_tutorial_pressed"]
 

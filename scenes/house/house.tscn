@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bxt3eonn1gutt" path="res://scenes/house/room.tscn" id="1_44bws"]
 [ext_resource type="Texture2D" uid="uid://dnm8ca8mhve8b" path="res://assets/House-improved.png" id="1_mm0xd"]
+[ext_resource type="PackedScene" uid="uid://by0q5vrx1m3tb" path="res://scenes/furniture/interactive/fruit.tscn" id="4_wusmn"]
 [ext_resource type="PackedScene" uid="uid://c0h38f3ddvnqm" path="res://scenes/walls/vertical_wall.tscn" id="6_cr554"]
 [ext_resource type="PackedScene" uid="uid://bemiihq0ja77e" path="res://scenes/player/player.tscn" id="7_cr554"]
 
@@ -34,6 +35,8 @@ position = Vector2(116, 228)
 position = Vector2(524, 228)
 
 [node name="Furniture" type="Node2D" parent="." unique_id=828031650]
+
+[node name="FruitBowl" parent="." unique_id=1869846928 instance=ExtResource("4_wusmn")]
 
 [node name="Player" parent="." unique_id=1514554974 instance=ExtResource("7_cr554")]
 position = Vector2(134, 194)
