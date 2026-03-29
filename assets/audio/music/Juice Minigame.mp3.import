@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8bwmuk41am2b"
+path="res://.godot/imported/Juice Minigame.mp3-00860df34d76924b2a6b4fe821e5241d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Juice Minigame.mp3"
+dest_files=["res://.godot/imported/Juice Minigame.mp3-00860df34d76924b2a6b4fe821e5241d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

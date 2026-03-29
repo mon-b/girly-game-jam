@@ -7,3 +7,7 @@ script = ExtResource("1_jisk1")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=887883132]
 bus = &"Music"
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1817970480]
+bus = &"SFX"
+area_mask = 2

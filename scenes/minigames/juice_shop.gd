@@ -99,7 +99,7 @@ var time_left: float = 60.0
 # ========================
 
 func _ready():
-	AudioManager.play_music("res://assets/audio/music/JuiceMinigame.mp3", 10)
+	AudioManager.play_music("res://assets/audio/music/Juice Minigame.mp3", 10)
 	randomize()
 	generate_new_order()
 	update_cup_visuals()
@@ -282,8 +282,10 @@ func deliver_cup():
 	# Update score
 	var drink := get_current_drink()
 	if drink == current_order:
+		AudioManager.play_sfx("res://assets/audio/sfx/Juice Minigame Ok.wav", 10)
 		score += 10
 	else:
+		AudioManager.play_sfx("res://assets/audio/sfx/Juice Minigame Not Ok.wav", 10)
 		score = max(0, score - 5)
 	update_ui()
 	
