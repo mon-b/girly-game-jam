@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://by0q5vrx1m3tb"]
+
+[ext_resource type="Texture2D" uid="uid://cxhaben3gpheu" path="res://assets/ui/house/interactive_items/Furniture-fruit.png" id="1_cklp3"]
+[ext_resource type="Script" path="res://scenes/furniture/interactive/fruit.gd" id="2_fruit"]
+
+[node name="FruitBowl" type="Node2D" unique_id=1869846928]
+script = ExtResource("2_fruit")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907699420]
+texture = ExtResource("1_cklp3")

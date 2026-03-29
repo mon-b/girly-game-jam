@@ -1,8 +1,11 @@
 extends Node2D
 
 const ItemToolbar = preload("res://scenes/furniture/item_toolbar.tscn")
+const TEXTURE_EDIT = preload("res://assets/ui/Buttons-build.png")
+const TEXTURE_CONFIRM = preload("res://assets/ui/Buttons-confirm.png")
 
 @onready var tutorial_modal = $TutorialModal
+@onready var fruit_bowl = $FruitBowl
 
 var preview: Node2D = null
 var item_dragged: Node2D = null
@@ -20,9 +23,14 @@ const ROOM_X_MAX = 524
 func _ready():
 	AudioManager.play_music("res://assets/audio/music/Dollhouse.mp3", 0)
 	_restore_furniture()
+	if Global.tutorial_seen:
+		tutorial_modal.hide()
+	fruit_bowl.player = $House/Player
 
 func _process(_delta: float) -> void:
 	$VBoxContainer.visible = Global.placing_item == null and not Global.shop_open
+	fruit_bowl.set_process_input(not Global.edit_mode and Global.placing_item == null)
+	$VBoxContainer/Edit.texture_normal = TEXTURE_CONFIRM if Global.edit_mode else TEXTURE_EDIT
 	for button in $VBoxContainer.get_children():
 		if button.name == "Edit":
 			continue
@@ -35,7 +43,8 @@ func _process(_delta: float) -> void:
 
 	if preview != null:
 		var mouse = get_global_mouse_position()
-		var half_w = preview.get_node("Sprite2D").region_rect.size.x / 2.0
+		var sprite = preview.get_node("Sprite2D")
+		var half_w = sprite.region_rect.size.x / 2.0
 		var x_min = ROOM_X_MIN + half_w + 4
 		var x_max = ROOM_X_MAX - half_w - 4
 		if Global.type_placing_item == "wall":
@@ -50,17 +59,21 @@ func _process(_delta: float) -> void:
 				wall_y,
 			)
 		elif Global.type_placing_item == "floor":
+			var half_h = sprite.region_rect.size.y / 2.0
 			var floor_y
 			if mouse.y > (FLOOR_Y1 + FLOOR_Y2)/2:
-				floor_y = FLOOR_Y1
+				floor_y = FLOOR_Y1 - half_h + 22
 			else:
-				floor_y = FLOOR_Y2
+				floor_y = FLOOR_Y2 - half_h + 22
 
 			preview.position = Vector2(clamp(mouse.x, x_min, x_max), floor_y)
 	
 	if item_dragged != null:
 		var mouse = get_global_mouse_position()
-		var half_w = item_dragged.get_node("Sprite2D").region_rect.size.x / 2.0
+		var sprite = item_dragged.get_node("Sprite2D")
+		var sprite_w = sprite.region_rect.size.x if sprite.region_rect.size.x > 0 else sprite.texture.get_size().x
+		var sprite_h = sprite.region_rect.size.y if sprite.region_rect.size.y > 0 else sprite.texture.get_size().y
+		var half_w = sprite_w / 2.0
 		var x_min = ROOM_X_MIN + half_w + 4
 		var x_max = ROOM_X_MAX - half_w - 4
 		if drag_type == "wall":
@@ -75,11 +88,12 @@ func _process(_delta: float) -> void:
 				wall_y,
 			)
 		elif drag_type == "floor":
+			var half_h = sprite_h / 2.0
 			var floor_y
 			if mouse.y > (FLOOR_Y1 + FLOOR_Y2)/2:
-				floor_y = FLOOR_Y1
+				floor_y = FLOOR_Y1 - half_h + 22
 			else:
-				floor_y = FLOOR_Y2
+				floor_y = FLOOR_Y2 - half_h + 22
 
 			item_dragged.position = Vector2(clamp(mouse.x, x_min, x_max), floor_y)
 			
@@ -96,6 +110,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 
 		var mouse = get_global_mouse_position()
+
+		var fruit_sprite = fruit_bowl.get_node("Sprite2D")
+		var fruit_size = fruit_sprite.texture.get_size()
+		var fruit_rect = Rect2(fruit_bowl.position - fruit_size / 2.0, fruit_size)
+		if fruit_rect.has_point(mouse):
+			item_dragged = fruit_bowl
+			drag_type = "floor"
+			fruit_bowl.modulate.a = 0.7
+			return
+
 		var clicked_item = null
 		for item in $House/Furniture.get_children():
 			if item == preview:
@@ -136,6 +160,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # ========================
 
 func _save_furniture() -> void:
+	Global.fruit_bowl_position = fruit_bowl.position
 	Global.placed_furniture.clear()
 	for item in $House/Furniture.get_children():
 		Global.placed_furniture.append({
@@ -148,6 +173,7 @@ func _save_furniture() -> void:
 		Global.room_states.append(room.get_state())
 
 func _restore_furniture() -> void:
+	fruit_bowl.position = Global.fruit_bowl_position
 	for data in Global.placed_furniture:
 		var scene = load(data["scene_path"])
 		if scene:
@@ -269,7 +295,8 @@ func _on_decorate_pressed():
 		_hide_toolbar()
 
 func _start_wiggle() -> void:
-	for item in $House/Furniture.get_children():
+	var items = $House/Furniture.get_children() + [fruit_bowl]
+	for item in items:
 		if item == preview:
 			continue
 		var tween = create_tween().set_loops()
@@ -278,7 +305,8 @@ func _start_wiggle() -> void:
 		item.set_meta("wiggle_tween", tween)
 
 func _stop_wiggle() -> void:
-	for item in $House/Furniture.get_children():
+	var items = $House/Furniture.get_children() + [fruit_bowl]
+	for item in items:
 		if item == preview:
 			continue
 		if item.has_meta("wiggle_tween"):
@@ -327,4 +355,5 @@ func _on_tutorial_pressed():
 	tutorial_modal.show()
 
 func _on_close_tutorial_pressed():
+	Global.tutorial_seen = true
 	tutorial_modal.hide()

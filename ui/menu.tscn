@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bv4p6fynlm4wb" path="res://assets/ui/Build-mode-edit.png" id="12_c5cit"]
 [ext_resource type="Texture2D" uid="uid://brq0tkqs72v3p" path="res://assets/ui/Build-mode-delete.png" id="13_lf6dv"]
 [ext_resource type="Texture2D" uid="uid://0njs0vd1apeb" path="res://assets/ui/Buttons-shop.png" id="14_is7kr"]
+[ext_resource type="PackedScene" uid="uid://by0q5vrx1m3tb" path="res://scenes/furniture/interactive/fruit.tscn" id="17_akon5"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_u22un"]
 color = Color(0.5392586, 0.23342228, 0.22215709, 0.54901963)
@@ -26,6 +27,9 @@ vertical = true
 script = ExtResource("1_4c782")
 
 [node name="House" parent="." unique_id=592924595 instance=ExtResource("1_udkah")]
+
+[node name="FruitBowl" parent="." unique_id=1869846928 instance=ExtResource("17_akon5")]
+position = Vector2(212, 201)
 
 [node name="VBoxContainer" parent="." unique_id=2080362688 instance=ExtResource("2_4c782")]
 offset_left = 560.0
@@ -49,24 +53,22 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="Movement" type="Node" parent="TutorialModal/9Rect" unique_id=1081781211]
-
-[node name="TutorialRun" type="Sprite2D" parent="TutorialModal/9Rect/Movement" unique_id=1416625580]
-position = Vector2(228.4, 215.5)
+[node name="TutorialRun" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=1416625580]
+position = Vector2(65.399994, 87.5)
 texture = ExtResource("5_cop0s")
 
-[node name="TutorialOr" type="Sprite2D" parent="TutorialModal/9Rect/Movement" unique_id=915529391]
-position = Vector2(231.4, 255.5)
+[node name="TutorialOr" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=915529391]
+position = Vector2(68.399994, 127.5)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("6_oumb1")
 
-[node name="TutorialAwsd" type="Sprite2D" parent="TutorialModal/9Rect/Movement" unique_id=559877693]
-position = Vector2(203.40001, 265.5)
+[node name="TutorialAwsd" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=559877693]
+position = Vector2(40.40001, 137.5)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("7_7toyc")
 
-[node name="TutorialArrows" type="Sprite2D" parent="TutorialModal/9Rect/Movement" unique_id=387061632]
-position = Vector2(258.4, 265.5)
+[node name="TutorialArrows" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=387061632]
+position = Vector2(95.399994, 137.5)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8_ybgh7")
 
@@ -78,14 +80,12 @@ offset_right = 131.0
 offset_bottom = 153.0
 theme_override_styles/separator = SubResource("StyleBoxLine_u22un")
 
-[node name="Buttons" type="Node" parent="TutorialModal/9Rect" unique_id=999741321]
-
-[node name="ButtonsScreenshot" type="Sprite2D" parent="TutorialModal/9Rect/Buttons" unique_id=684546693]
-position = Vector2(316, 190)
+[node name="ButtonsScreenshot" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=684546693]
+position = Vector2(153, 62)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("9_u22un")
 
-[node name="Label" type="Label" parent="TutorialModal/9Rect/Buttons/ButtonsScreenshot" unique_id=1483671174]
+[node name="Label" type="Label" parent="TutorialModal/9Rect/ButtonsScreenshot" unique_id=1483671174]
 offset_left = 42.0
 offset_top = -12.499999
 offset_right = 329.0
@@ -96,12 +96,22 @@ theme_override_font_sizes/font_size = 26
 text = "Downloads a screenshot"
 autowrap_mode = 3
 
-[node name="ButtonsBuild" type="Sprite2D" parent="TutorialModal/9Rect/Buttons" unique_id=1643834315]
-position = Vector2(316, 227)
+[node name="BuildModeDelete" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=1186212203]
+position = Vector2(231.49997, 116.5)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("13_lf6dv")
+
+[node name="BuildModeEdit" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=847546373]
+position = Vector2(216.5, 116.5)
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("12_c5cit")
+
+[node name="ButtonsBuild" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=1643834315]
+position = Vector2(153, 99)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_akon5")
 
-[node name="Label" type="Label" parent="TutorialModal/9Rect/Buttons/ButtonsBuild" unique_id=826887079]
+[node name="Label" type="Label" parent="TutorialModal/9Rect/ButtonsBuild" unique_id=826887079]
 offset_left = 42.0
 offset_top = -50.000034
 offset_right = 369.49994
@@ -113,22 +123,12 @@ text = "Enter build mode. Click on an item to edit or delete by clicking"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="BuildModeEdit" type="Sprite2D" parent="TutorialModal/9Rect/Buttons/ButtonsBuild" unique_id=847546373]
-position = Vector2(158.75, 43.75002)
-scale = Vector2(2.4999998, 2.4999998)
-texture = ExtResource("12_c5cit")
-
-[node name="BuildModeDelete" type="Sprite2D" parent="TutorialModal/9Rect/Buttons/ButtonsBuild" unique_id=1186212203]
-position = Vector2(196.24994, 43.75002)
-scale = Vector2(2.4999998, 2.4999998)
-texture = ExtResource("13_lf6dv")
-
-[node name="ButtonsShop" type="Sprite2D" parent="TutorialModal/9Rect/Buttons" unique_id=878308957]
-position = Vector2(316, 272)
+[node name="ButtonsShop" type="Sprite2D" parent="TutorialModal/9Rect" unique_id=878308957]
+position = Vector2(153, 144)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("14_is7kr")
 
-[node name="Label" type="Label" parent="TutorialModal/9Rect/Buttons/ButtonsShop" unique_id=9255097]
+[node name="Label" type="Label" parent="TutorialModal/9Rect/ButtonsShop" unique_id=9255097]
 offset_left = 42.0
 offset_top = -37.500072
 offset_right = 379.49994
@@ -171,6 +171,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="VBoxContainer/Edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Edit" to="." method="_on_decorate_pressed"]
 [connection signal="pressed" from="VBoxContainer/Door" to="." method="_on_door_pressed"]
+[connection signal="pressed" from="FruitBowl" to="." method="_on_door_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="TutorialModal/9Rect/CloseTutorial" to="." method="_on_close_tutorial_pressed"]
 
