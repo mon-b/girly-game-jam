@@ -1,16 +1,11 @@
 [gd_scene format=3 uid="uid://br8idbt3jg6ni"]
 
+[ext_resource type="Texture2D" uid="uid://cm1x1jvgvk86b" path="res://assets/ui/Buttons-screenshot.png" id="1_ijn6y"]
 [ext_resource type="Texture2D" uid="uid://cyd4prrpct5ln" path="res://assets/buttons.png" id="1_nl7wd"]
-[ext_resource type="Texture2D" uid="uid://d2rdrtpvywaaf" path="res://assets/ui/Buttons-build-mode.png" id="2_28n8x"]
 [ext_resource type="Script" uid="uid://ikf3o1d4cafo" path="res://ui/shop/shop_button.gd" id="2_asmfa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_asmfa"]
-atlas = ExtResource("1_nl7wd")
-region = Rect2(0, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulsp3"]
-atlas = ExtResource("1_nl7wd")
-region = Rect2(0, 160, 80, 80)
+[ext_resource type="Texture2D" uid="uid://cadk4kcbcumt5" path="res://assets/ui/Buttons-build.png" id="2_lkcl6"]
+[ext_resource type="Texture2D" uid="uid://0njs0vd1apeb" path="res://assets/ui/Buttons-shop.png" id="3_edjx0"]
+[ext_resource type="Texture2D" uid="uid://g224l3i5kfiq" path="res://assets/ui/Buttons-tutorial.png" id="6_kgaoo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1lxv"]
 atlas = ExtResource("1_nl7wd")
@@ -21,23 +16,34 @@ offset_left = -40.0
 offset_top = -180.0
 offset_right = 40.0
 offset_bottom = 180.0
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Camera" type="TextureButton" parent="." unique_id=1210502227]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_asmfa")
+texture_normal = ExtResource("1_ijn6y")
+stretch_mode = 3
 
 [node name="Edit" type="TextureButton" parent="." unique_id=1345688983]
-custom_minimum_size = Vector2(20, 80)
+custom_minimum_size = Vector2(20, 48)
 layout_mode = 2
-texture_normal = ExtResource("2_28n8x")
+texture_normal = ExtResource("2_lkcl6")
 ignore_texture_size = true
+stretch_mode = 3
 
 [node name="Shop" type="TextureButton" parent="." unique_id=501627739]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ulsp3")
+texture_normal = ExtResource("3_edjx0")
+stretch_mode = 3
 script = ExtResource("2_asmfa")
 
 [node name="Door" type="TextureButton" parent="." unique_id=1105761404]
+visible = false
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_n1lxv")
+stretch_mode = 3
+
+[node name="Tutorial" type="TextureButton" parent="." unique_id=2060361808]
+layout_mode = 2
+texture_normal = ExtResource("6_kgaoo")
+stretch_mode = 3

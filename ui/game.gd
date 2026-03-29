@@ -2,6 +2,8 @@ extends Node2D
 
 const ItemToolbar = preload("res://scenes/furniture/item_toolbar.tscn")
 
+@onready var tutorial_modal = $TutorialModal
+
 var preview: Node2D = null
 var item_dragged: Node2D = null
 var drag_type: String = ""
@@ -319,3 +321,10 @@ func _on_toolbar_delete(item: Node2D) -> void:
 		item.get_meta("wiggle_tween").kill()
 	_hide_toolbar()
 	item.queue_free()
+
+
+func _on_tutorial_pressed():
+	tutorial_modal.show()
+
+func _on_close_tutorial_pressed():
+	tutorial_modal.hide()
