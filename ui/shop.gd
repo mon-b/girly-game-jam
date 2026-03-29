@@ -195,6 +195,9 @@ func _ready() -> void:
 	floor_textures = _load_dir(FLOOR_DIR)
 	wallpaper_textures = _load_dir(WALLPAPER_DIR)
 	_refresh_money_label()
+	visibility_changed.connect(func():
+		if visible:
+			_refresh_money_label())
 	$TextureButton.pressed.connect(func(): visible = false; Global.shop_open = false)
 	$Panel/Sidebar/Cat1.pressed.connect(func(): _set_category(Global.TYPE_FURNITURE))
 	$Panel/Sidebar/Cat2.pressed.connect(func(): _set_category(Global.TYPE_WALLPAPER))
